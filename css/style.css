@@ -62,7 +62,9 @@ a{
 }
 
 .background{
-    background-color: rgb(245, 245, 245, .98);
+    background-color: rgb(245, 245, 245);
+    padding-bottom: 1px;
+    border-bottom: 8px solid rgba(234, 234, 234, 0.45) 
 }
 
 .btn-area{
