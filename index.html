@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top background navbar-light">
+        <div class="container-fluid mx-4">
+            <a class="navbar-brand logo" href="/"><img src="assets/logo.png" alt="Logo" draggable="false" height="80" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#!">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#!">Register</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-outline-success btn-rounded" href="#!">Sign in</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing -->
+    <div style="margin-top: 10vh; position: relative">
+        <img src="assets/landing.png" class="img-fluid" alt="landing page"></img>
+    </div>
+
+    <!-- Popular image -->
+    <div class="container image-container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <model-viewer style="width: 400px; height: 400px; margin: 0, auto;"
+                src="assets/shokher_hari.glb" ar autoplay
+                poster="assets/shoker_hari.png" shadow-intensity="0" 
+                camera-controls touch-action="pan-y"></model-viewer>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <h1 class="title-text">Most Popular Product</h1>
+                <br>
+                <p style="width: 25em">Make this artistic piece of Bangladeshi art and culture your own.
+                We try to give you the best & most aesthetic products. Browse through all the products from
+                various sellers and choose the one you like best and get it right at your doorstep.</p>
+                <br>
+                <h2><a href="item.html">Shokher Hari</a></h2>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="price-text">500Tk/-</p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <a class="btn btn-outline-success btn-lg buy-btn" href="item.html">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/holder.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Holder</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/shell.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Shell</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/croc.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Komir</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/dhakni_bati.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Bati</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/basha.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Basha</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/vase.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Fuldani</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/jug.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Jug</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+            <div class="col-lg-3">
+                <model-viewer style="width: 250px; height: 300px; margin: 0, auto;"
+                src="assets/box.glb" ar autoplay
+                shadow-intensity="1" 
+                camera-controls touch-action="pan-y"></model-viewer>
+                <a href="item.html"><h5 class="product-text">Matir Baksho</h5></a>
+                <h5 class="small-price-text"><bold>200tk/-</bold></h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Browser More Button -->
+    <div class="row btn-area">
+        <div class="col-3"></div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-lg btn-outline-success" href="products.html">Browse More</a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center align-items-center" style="width: 200px; margin: auto">
+                <img src="assets/logo-2.png" class="img-fluid" alt="..."></img>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <p class="text-center">Copyright © IUB 2023. All Right Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+</body>
+</html>
