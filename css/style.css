@@ -11,7 +11,7 @@ a{
 
 .image-container{
     margin-top: 50px;
-    padding: 8em;
+    padding: 5%;
 }
 
 .title-text{
@@ -61,7 +61,7 @@ a{
     filter:sepia();
 }
 
-.background{
+.navbar-custom {
     background-color: rgb(245, 245, 245);
     padding-bottom: 1px;
     border-bottom: 8px solid rgba(234, 234, 234, 0.45) 
@@ -97,4 +97,63 @@ a{
     transform: translate(-50%, -50%);
     max-width: 50%;
     max-height: 50%;
+  }
+
+  .viewer{
+    width: 250px;
+    height: 300px;
+    margin: 0, auto;
+  }
+
+  .popular-viewer{
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .nav-logo{
+    margin-top: 5px;
+    display: inline-block;
+    height: auto;
+    width: 50vw;
+    max-width: 20rem;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .image-container {
+      padding: 0;
+    }
+
+    .text-col{
+        text-align: center;
+        margin-top: 10%;
+    }
+
+    .price-text{
+        margin-right: auto;
+    }
+
+    .buy-btn{
+        margin-bottom: 10vh;
+    }
+
+    .popular-viewer{
+        width: 70%;
+        height: 75vw;
+    }
+
+    .popular-text{
+        width: 90%;
+        margin: auto;
+    }
+
+    .viewer{
+        width: 100%;
+        height: 70vw;
+        margin: 3em auto;
+    }
+
+    .title-text{
+        text-align: center;
+    }
   }
