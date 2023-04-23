@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 
@@ -186,6 +187,20 @@
                 <p class="text-white">&copy; Copyright IUB 2023. All Right Reserved</p>
             </div>
     </footer>
+
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                $.ajax({
+                    url: "{{ route('cart.count') }}",
+                    success: function (response) {
+                        $('.badge').text(response.count);
+                    }
+                });
+            }, 5000); // Refresh every 5 seconds
+        });
+    </script>
+
 
     <script>
         // Get all the images

@@ -40,4 +40,10 @@ Route::get('/item', function () {
     return view('item');
 })->name('item');
 
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
+
+Route::get('/cart/count', 'CartController@getCount')->name('cart.count');
+
 require __DIR__.'/auth.php';

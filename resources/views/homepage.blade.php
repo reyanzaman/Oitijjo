@@ -1,3 +1,8 @@
+@php
+$cart = session()->get('cart');
+$cartItemCount = is_array($cart) ? count($cart) : 0;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +15,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 
@@ -42,6 +48,12 @@
                     <li class="nav-item mx-2">
                         <a class="btn btn-outline-success btn-rounded"
                             href="{{ route('login') }}">Sign in</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="{{ route('cart') }}">
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                        </a>
+                        <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
                     </li>
                 </ul>
             </div>
