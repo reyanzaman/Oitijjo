@@ -44,4 +44,12 @@ Route::get('/cart', function () {
     return view('cart');
 })->name('cart');
 
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
+
+Route::get('/tracking', function () {
+    return view('tracking');
+})->name('tracking');
+
 require __DIR__.'/auth.php';

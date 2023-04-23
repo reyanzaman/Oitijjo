@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('diameter');
             $table->decimal('height');
             $table->decimal('width');
+            $table->boolean('stock');
             $table->string('model');
             $table->string('image1');
             $table->string('image2');

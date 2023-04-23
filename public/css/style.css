@@ -118,6 +118,14 @@ a{
     width: 50vw;
     max-width: 20rem;
   }
+
+  .fa-cart-shopping{
+    color: #55a34d;
+  }
+
+  .fa-cart-shopping:hover{
+    color: #3c7425;
+  }
   
   @media screen and (max-width: 1200px) {
     .image-container {
@@ -155,13 +163,5 @@ a{
 
     .title-text{
         text-align: center;
-    }
-
-    .fa-cart-shopping{
-        color: #55a34d;
-    }
-
-    .fa-cart-shopping:hover{
-        color: #9cec7c;
     }
 }
