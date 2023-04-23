@@ -1,3 +1,8 @@
+@php
+$cart = session()->get('cart');
+$cartItemCount = is_array($cart) ? count($cart) : 0;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +49,12 @@
                         <a class="btn btn-outline-success btn-rounded"
                             href="{{ route('login') }}">Sign in</a>
                     </li>
+                    <li class="nav-item mx-4">
+                        <a href="{{ route('cart') }}">
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                        </a>
+                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -75,7 +86,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <a class="btn btn-outline-success btn-lg buy-btn"
-                            href="{{ route('item') }}">Buy Now</a>
+                            onclick="addToCart(event)">Add to Cart</a>
                     </div>
                 </div>
                 <br><br>
@@ -189,16 +200,21 @@
     </footer>
 
     <script>
-        $(document).ready(function () {
-            setInterval(function () {
-                $.ajax({
-                    url: "{{ route('cart.count') }}",
-                    success: function (response) {
-                        $('.badge').text(response.count);
-                    }
-                });
-            }, 5000); // Refresh every 5 seconds
-        });
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        var cartItemCountElement = document.getElementById("cartItemCount");
+        var cartItemCount = localStorage.getItem('cartItemCount');
+        if (cartItemCount) {
+        cartItemCountElement.innerText = cartItemCount;
+        }
+    });
+
+    function addToCart() {
+        var cartItemCountElement = document.getElementById("cartItemCount");
+        var cartItemCount = parseInt(cartItemCountElement.innerText);
+        cartItemCount++;
+        cartItemCountElement.innerText = cartItemCount;
+        localStorage.setItem('cartItemCount', cartItemCount);
+    }
     </script>
 
 

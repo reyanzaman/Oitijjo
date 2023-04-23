@@ -53,7 +53,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                         <a href="{{ route('cart') }}">
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
-                        <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
                     </li>
                 </ul>
             </div>
@@ -201,6 +201,18 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var cartItemCountElement = document.getElementById("cartItemCount");
+            if (cartItemCountElement) {
+                var cartItemCount = localStorage.getItem('cartItemCount');
+                if (cartItemCount) {
+                    cartItemCountElement.innerText = cartItemCount;
+                }
+            }
+        });
     </script>
 
 </body>
