@@ -1,6 +1,18 @@
 @php
 $cart = session()->get('cart');
 $cartItemCount = is_array($cart) ? count($cart) : 0;
+$data = [
+    'model' => $model,
+    'name' => $name,
+    'description' => $description,
+    'diameter' => $diameter,
+    'height' => $height,
+    'width' => $width,
+    'price' => $price,
+    'image1' => $image1,
+    'image2' => $image2,
+    'image3' => $image3,
+];
 @endphp
 
 <!DOCTYPE html>
@@ -64,25 +76,28 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <div class="container image-container" style="margin-top: 10vh;">
         <div class="row">
             <div class="col-lg-6 col-sm-12">
-                <model-viewer class="popular-viewer" src="assets/shokher_hari.glb" ar autoplay
+                <model-viewer id="model" class="popular-viewer" src="assets/shokher_hari.glb" ar autoplay
                     poster="assets/hari_p.png" shadow-intensity="0" camera-controls touch-action="pan-y"></model-viewer>
             </div>
             <div class="col-lg-6 col-sm-12 text-col popular-text">
-                <h1 class="title-text">Shokher Hari</h1>
+                <h1 id="prod-name" class="title-text">Shokher Hari</h1>
                 <br>
-                <p>Make this artistic piece of Bangladeshi art and culture your own.
+                <p id="prod-description">Make this artistic piece of Bangladeshi art and culture your own.
                     We try to give you the best & most aesthetic products. Browse through all the products from
                     various sellers and choose the one you like best and get it right at your doorstep.</p>
                 <h5>
-                    <bold>Diameter: 63cm</bold>
+                    <bold id="prod-diameter">Diameter: 63cm</bold>
                 </h5>
                 <h5>
-                    <bold>Height: 42cm</bold>
+                    <bold id="prod-height">Height: 42cm</bold>
+                </h5>
+                <h5>
+                    <bold id="prod-width">Width: 63cm</bold>
                 </h5>
                 <br>
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
-                        <p class="price-text">500Tk/-</p>
+                        <p id="prod-price" class="price-text">500Tk/-</p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <a class="btn btn-outline-success btn-lg buy-btn"
@@ -92,13 +107,13 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 <br><br>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img class="img-fluid" src="assets/shoker_hari.png">
+                        <img id="prod-img1" class="img-fluid" src="assets/shoker_hari.png">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img class="img-fluid" src="assets/shoker_hari2.png">
+                        <img id="prod-img2" class="img-fluid" src="assets/shoker_hari2.png">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img class="img-fluid" src="assets/shoker_hari3.png">
+                        <img id="prod-img3" class="img-fluid" src="assets/shoker_hari3.png">
                     </div>
                 </div>
             </div>
@@ -198,6 +213,12 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 <p class="text-white">&copy; Copyright IUB 2023. All Right Reserved</p>
             </div>
     </footer>
+
+    <script>
+        let data = <?php echo json_encode($data); ?>;
+    </script>
+
+    <script src="js/item.js"></script>
 
     <script>
     document.addEventListener("DOMContentLoaded", function(event) { 

@@ -36,9 +36,7 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/item', function () {
-    return view('item');
-})->name('item');
+Route::get('/item', 'App\Http\Controllers\ItemController@getItemData')->name('item');
 
 Route::get('/cart', function () {
     return view('cart');
