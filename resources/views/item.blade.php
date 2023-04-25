@@ -1,6 +1,8 @@
 @php
+
 $cart = session()->get('cart');
 $cartItemCount = is_array($cart) ? count($cart) : 0;
+
 $data = [
     'model' => $model,
     'name' => $name,
@@ -13,6 +15,7 @@ $data = [
     'image2' => $image2,
     'image3' => $image3,
 ];
+
 @endphp
 
 <!DOCTYPE html>
@@ -82,19 +85,6 @@ $data = [
             <div class="col-lg-6 col-sm-12 text-col popular-text">
                 <h1 id="prod-name" class="title-text">Shokher Hari</h1>
                 <br>
-<<<<<<< HEAD
-                <p id="prod-description">Make this artistic piece of Bangladeshi art and culture your own.
-                    We try to give you the best & most aesthetic products. Browse through all the products from
-                    various sellers and choose the one you like best and get it right at your doorstep.</p>
-                <h5>
-                    <bold id="prod-diameter">Diameter: 63cm</bold>
-                </h5>
-                <h5>
-                    <bold id="prod-height">Height: 42cm</bold>
-                </h5>
-                <h5>
-                    <bold id="prod-width">Width: 63cm</bold>
-=======
                 <p id="prod-description" style="text-align: justify;">Make this artistic piece of Bangladeshi art and culture your own.
                     We try to give you the best & most aesthetic products. Browse through all the products from
                     various sellers and choose the one you like best and get it right at your doorstep.</p>
@@ -103,7 +93,6 @@ $data = [
                 </h5>
                 <h5>
                     <bold id="prod-stock" style="color:red;">NOT IN STOCK</bold>
->>>>>>> 412e8cd (item backend)
                 </h5>
                 <br>
                 <div class="row">
@@ -230,38 +219,7 @@ $data = [
     </script>
 
     <script src="js/item.js"></script>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function(event) { 
-        var cartItemCountElement = document.getElementById("cartItemCount");
-        var cartItemCount = localStorage.getItem('cartItemCount');
-        if (cartItemCount) {
-        cartItemCountElement.innerText = cartItemCount;
-        }
-    });
-
-    function addToCart() {
-        var cartItemCountElement = document.getElementById("cartItemCount");
-        var cartItemCount = parseInt(cartItemCountElement.innerText);
-        cartItemCount++;
-        cartItemCountElement.innerText = cartItemCount;
-        localStorage.setItem('cartItemCount', cartItemCount);
-    }
-    </script>
-
-
-    <script>
-        // Get all the images
-        var images = document.querySelectorAll('.img-fluid');
-
-        // Loop through each image and add a click event listener
-        images.forEach(function (img) {
-            img.addEventListener('click', function () {
-                // Toggle the class 'enlarge' on the clicked image
-                this.classList.toggle('enlarge');
-            });
-        });
-    </script>
+    <script src="js/cart.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

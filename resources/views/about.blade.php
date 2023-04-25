@@ -200,17 +200,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function(event) { 
-            var cartItemCountElement = document.getElementById("cartItemCount");
-            if (cartItemCountElement) {
-                var cartItemCount = localStorage.getItem('cartItemCount');
-                if (cartItemCount) {
-                    cartItemCountElement.innerText = cartItemCount;
-                }
-            }
-        });
-    </script>
+    <script src="js/cart.js"></script>
 
 </body>
 

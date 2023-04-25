@@ -33,3 +33,13 @@ if(data.stock==0){
     stock.innerHTML = "IN STOCK";
     stock.style.color = 'green';
 }
+
+
+var images = document.querySelectorAll('.img-fluid');
+
+images.forEach(function (img) {
+    img.addEventListener('click', function () {
+        // Toggle the class 'enlarge' on the clicked image
+        this.classList.toggle('enlarge');
+    });
+});
