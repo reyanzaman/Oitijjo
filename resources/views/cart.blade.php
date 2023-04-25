@@ -83,98 +83,8 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
             <a href="{{ route('products') }}" class="continue">Continue Shopping</a>
         </div>
         <div class="cart heading">
-            <ul>
-                <li class="items odd">
-
-                    <div class="infoWrap">
-                        <div class="cartSection">
-                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
-                            <p class="itemNumber">#QUE-007544-002</p>
-                            <h3>Item Name 1</h3>
-
-                            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-
-                            <p class="stockStatus"> In Stock</p>
-                        </div>
-
-                        <div class="prodTotal cartSection">
-                            <p>$15.00</p>
-                        </div>
-                        <div class="cartSection removeWrap">
-                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="items even">
-
-                    <div class="infoWrap">
-                        <div class="cartSection">
-
-                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
-                            <p class="itemNumber">#QUE-007544-002</p>
-                            <h3>Item Name 1</h3>
-
-                            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-
-                            <p class="stockStatus"> In Stock</p>
-                        </div>
-
-                        <div class="prodTotal cartSection">
-                            <p>$15.00</p>
-                        </div>
-                        <div class="cartSection removeWrap">
-                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="items odd">
-                    <div class="infoWrap">
-                        <div class="cartSection">
-
-                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
-                            <p class="itemNumber">#QUE-007544-002</p>
-                            <h3>Item Name 1</h3>
-
-                            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-
-                            <p class="stockStatus out"> Out of Stock</p>
-                        </div>
-
-                        <div class="prodTotal cartSection">
-                            <p>$15.00</p>
-                        </div>
-                        <div class="cartSection removeWrap">
-                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="items even">
-                    <div class="infoWrap">
-                        <div class="cartSection info">
-
-                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
-                            <p class="itemNumber">#QUE-007544-002</p>
-                            <h3>Item Name 1</h3>
-
-                            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-
-                            <p class="stockStatus"> In Stock</p>
-
-                        </div>
-
-                        <div class="prodTotal cartSection">
-                            <p>$15.00</p>
-                        </div>
-
-                        <div class="cartSection removeWrap">
-                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!--<li class="items even">Item 2</li>-->
-
+            <ul id="cartItemList">
+                <!-- Item To Be Displayed Here -->
             </ul>
         </div>
 
@@ -232,6 +142,8 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
             </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -241,8 +153,6 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-
-    <script src="js/cart.js"></script>
 
 </body>
 

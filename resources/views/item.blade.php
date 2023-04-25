@@ -4,6 +4,7 @@ $cart = session()->get('cart');
 $cartItemCount = is_array($cart) ? count($cart) : 0;
 
 $data = [
+    'id' => $id,
     'model' => $model,
     'name' => $name,
     'description' => $description,

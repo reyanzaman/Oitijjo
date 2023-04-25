@@ -30,6 +30,6 @@ class ItemController extends Controller
         $image2 = $product->image2;
         $image3 = $product->image3;
     
-        return view('item', compact('model', 'name', 'description', 'length', 'width', 'height', 'price', 'stock', 'image1', 'image2', 'image3'));
+        return view('item', compact('id', 'model', 'name', 'description', 'length', 'width', 'height', 'price', 'stock', 'image1', 'image2', 'image3'));
     }    
 }
