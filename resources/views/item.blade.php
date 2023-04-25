@@ -5,9 +5,15 @@ $data = [
     'model' => $model,
     'name' => $name,
     'description' => $description,
+<<<<<<< HEAD
     'diameter' => $diameter,
     'height' => $height,
     'width' => $width,
+=======
+    'length' => $length,
+    'width' => $width,
+    'height' => $height,
+>>>>>>> 412e8cd (item backend)
     'price' => $price,
     'image1' => $image1,
     'image2' => $image2,
@@ -82,6 +88,7 @@ $data = [
             <div class="col-lg-6 col-sm-12 text-col popular-text">
                 <h1 id="prod-name" class="title-text">Shokher Hari</h1>
                 <br>
+<<<<<<< HEAD
                 <p id="prod-description">Make this artistic piece of Bangladeshi art and culture your own.
                     We try to give you the best & most aesthetic products. Browse through all the products from
                     various sellers and choose the one you like best and get it right at your doorstep.</p>
@@ -93,6 +100,16 @@ $data = [
                 </h5>
                 <h5>
                     <bold id="prod-width">Width: 63cm</bold>
+=======
+                <p id="prod-description" style="text-align: justify;">Make this artistic piece of Bangladeshi art and culture your own.
+                    We try to give you the best & most aesthetic products. Browse through all the products from
+                    various sellers and choose the one you like best and get it right at your doorstep.</p>
+                <h5>
+                    <bold id="prod-dimension">Dimensions: 63cm x 63cm x 42cm</bold>
+                </h5>
+                <h5>
+                    <bold id="prod-stock" style="color:red;">NOT IN STOCK</bold>
+>>>>>>> 412e8cd (item backend)
                 </h5>
                 <br>
                 <div class="row">
