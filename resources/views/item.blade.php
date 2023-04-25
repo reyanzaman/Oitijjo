@@ -5,15 +5,9 @@ $data = [
     'model' => $model,
     'name' => $name,
     'description' => $description,
-<<<<<<< HEAD
-    'diameter' => $diameter,
-    'height' => $height,
-    'width' => $width,
-=======
     'length' => $length,
     'width' => $width,
     'height' => $height,
->>>>>>> 412e8cd (item backend)
     'price' => $price,
     'image1' => $image1,
     'image2' => $image2,
