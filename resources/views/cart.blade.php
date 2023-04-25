@@ -88,7 +88,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
 
                     <div class="infoWrap">
                         <div class="cartSection">
-                            <img src="assets/hari_p.png" alt="" class="itemImg" />
+                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
                             <p class="itemNumber">#QUE-007544-002</p>
                             <h3>Item Name 1</h3>
 
@@ -101,7 +101,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                             <p>$15.00</p>
                         </div>
                         <div class="cartSection removeWrap">
-                            <a href="#" class="remove">x</a>
+                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
                         </div>
                     </div>
                 </li>
@@ -110,7 +110,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <div class="infoWrap">
                         <div class="cartSection">
 
-                            <img src="assets/hari_p.png" alt="" class="itemImg" />
+                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
                             <p class="itemNumber">#QUE-007544-002</p>
                             <h3>Item Name 1</h3>
 
@@ -123,7 +123,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                             <p>$15.00</p>
                         </div>
                         <div class="cartSection removeWrap">
-                            <a href="#" class="remove">x</a>
+                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
                         </div>
                     </div>
                 </li>
@@ -132,7 +132,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <div class="infoWrap">
                         <div class="cartSection">
 
-                            <img src="assets/hari_p.png" alt="" class="itemImg" />
+                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
                             <p class="itemNumber">#QUE-007544-002</p>
                             <h3>Item Name 1</h3>
 
@@ -145,7 +145,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                             <p>$15.00</p>
                         </div>
                         <div class="cartSection removeWrap">
-                            <a href="#" class="remove">x</a>
+                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
                         </div>
                     </div>
                 </li>
@@ -153,7 +153,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <div class="infoWrap">
                         <div class="cartSection info">
 
-                            <img src="assets/hari_p.png" alt="" class="itemImg" />
+                            <img src="assets/shokher_hari_h.png" alt="" class="itemImg" />
                             <p class="itemNumber">#QUE-007544-002</p>
                             <h3>Item Name 1</h3>
 
@@ -168,7 +168,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                         </div>
 
                         <div class="cartSection removeWrap">
-                            <a href="#" class="remove">x</a>
+                            <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
                         </div>
                     </div>
                 </li>
@@ -243,20 +243,6 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     </script>
 
     <script src="js/cart.js"></script>
-
-    <!-- Clear Script -->
-    <script>
-        // Remove Items From Cart
-        $("a.remove").click(function () {
-        event.preventDefault();
-        $(this).parent().parent().parent().hide(400);
-        });
-
-        // Just for testing, show all items
-        $("a.btn.continue").click(function () {
-        $("li.items").show(400);
-        });
-    </script>
 
 </body>
 

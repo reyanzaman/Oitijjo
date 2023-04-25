@@ -100,20 +100,20 @@ $data = [
                         <p id="prod-price" class="price-text">500Tk/-</p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <a class="btn btn-outline-success btn-lg buy-btn"
+                        <a id="cart-btn" class="btn btn-outline-success btn-lg buy-btn"
                             onclick="addToCart(event)">Add to Cart</a>
                     </div>
                 </div>
                 <br><br>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img1" class="img-fluid" src="assets/shoker_hari.png">
+                        <img id="prod-img1" class="img-fluid" src="assets/shokher_hari.png">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img2" class="img-fluid" src="assets/shoker_hari2.png">
+                        <img id="prod-img2" class="img-fluid" src="assets/shokher_hari2.png">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img3" class="img-fluid" src="assets/shoker_hari3.png">
+                        <img id="prod-img3" class="img-fluid" src="assets/shokher_hari3.png">
                     </div>
                 </div>
             </div>

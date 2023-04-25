@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ItemController extends Controller
 {
@@ -13,6 +14,7 @@ class ItemController extends Controller
     
         $product = DB::table('product')->where('id', $id)->first();
         if (!$product) {
+            Log::info('Product not found');
             return abort(404);
         }
     

@@ -8,6 +8,7 @@ let stock = document.getElementById('prod-stock');
 let image1 = document.getElementById('prod-img1');
 let image2 = document.getElementById('prod-img2');
 let image3 = document.getElementById('prod-img3');
+let button = document.getElementById('cart-btn');
 
 model.src = 'assets/' + data.model + '.glb';
 model.poster = 'assets/' + data.model + '_h.png'
@@ -22,13 +23,15 @@ image2.src = 'assets/' + data.image2 + '.png';
 image3.src = 'assets/' + data.image3 + '.png';
 
 if(data.height==0.00){
-    dimension.innerHTML = 'Dimension: ' + parseFloat(data.length).toFixed(1) + 'cm x ' + parseFloat(data.width).toFixed(1) + 'cm';
+    dimension.innerHTML = 'Dimension: ' + parseFloat(data.length).toFixed(2) + ' x ' + parseFloat(data.width).toFixed(2) + ' cm';
 }else{
-    dimension.innerHTML = 'Dimension: ' + parseFloat(data.length) + 'cm x ' + parseFloat(data.width) + 'cm x ' + parseFloat(data.height) + 'cm';
+    dimension.innerHTML = 'Dimension: ' + parseFloat(data.length).toFixed(2) + ' x ' + parseFloat(data.width).toFixed(2) + ' x ' + parseFloat(data.height).toFixed(2) + ' cm';
 }
 
-if(data.stock==0){
+if(data.stock == 0){
     stock.innerHTML = "NOT IN STOCK";
+    button.innerHTML = "Unavailable"
+    button.className = "btn btn-outline-secondary btn-lg buy-btn disabled"
 }else{
     stock.innerHTML = "IN STOCK";
     stock.style.color = 'green';
