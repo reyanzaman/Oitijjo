@@ -16,15 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->text('description');
-<<<<<<< HEAD
-            $table->decimal('diameter');
-            $table->decimal('height');
-            $table->decimal('width');
-=======
             $table->decimal('length');
             $table->decimal('width');
             $table->decimal('height');
->>>>>>> 412e8cd (item backend)
             $table->boolean('stock');
             $table->string('model');
             $table->string('image1');
