@@ -12,44 +12,49 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 function generateCartItemsHTML(cartData) {
     var cartItemList = document.getElementById("cartItemList");
-    var counts = {}; // Object to keep track of counts for each ID
-    for (var i = 0; i < cartData.length; i++) {
-      var item = cartData[i];
-      var id = item.id;
-      if (counts[id]) {
-        // ID has already been seen, increment the quantity element
-        var qtyInput = cartItemList.querySelector(`li[data-id="${id}"] .qty`);
-        qtyInput.value = parseInt(qtyInput.value) + 1;
 
-        var totalPrice = cartItemList.querySelector(`li[data-id="${id}"] #itemPrice`);
-        intPrice = parseInt(totalPrice.textContent.substring(2));
-        intPrice = intPrice + parseInt(item.price);
-        totalPrice.textContent = "৳ " + intPrice;
-      } else {
-        // ID has not been seen, create the HTML and add to the cart
-        var li = document.createElement("li");
-        li.classList.add("items", "odd");
-        li.dataset.id = id; // Set the data-id attribute to the ID
-        li.innerHTML = `
-          <div class="infoWrap">
-            <div class="cartSection">
-              <img src="assets/${item.image}" alt="product_image" class="itemImg" />
-              <p class="itemNumber">#${id.toString().padStart(8,'0')}</p>
-              <h3>${item.name}</h3>
-              <p>
-                <input id="quantity" type="text" class="qty" placeholder="1" value="1" /> x <p id="singlePrice">${item.price}</p>
-              </p>
-            </div>
-            <div class="prodTotal cartSection">
-            <p id="itemPrice">৳ ${Math.round(item.price)}</p>
-            </div>
-            <div class="cartSection removeWrap">
-              <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
-            </div>
-          </div>`;
-        if(li && cartItemList){
-          cartItemList.appendChild(li);
-          counts[id] = 1; // Set the count for this ID to 1
+    if(cartData.length == 0) {
+      var li = document.createElement("li");
+      li.innerHTML = `<br><h4 style="color: grey; text-align: center;">Cart Empty</h4>`;
+      cartItemList.appendChild(li);
+    }else{
+      var counts = {};
+      for (var i = 0; i < cartData.length; i++) {
+        var item = cartData[i];
+        var id = item.id;
+        if (counts[id]) {
+          var qtyInput = cartItemList.querySelector(`li[data-id="${id}"] .qty`);
+          qtyInput.value = parseInt(qtyInput.value) + 1;
+
+          var totalPrice = cartItemList.querySelector(`li[data-id="${id}"] #itemPrice`);
+          intPrice = parseInt(totalPrice.textContent.substring(2));
+          intPrice = intPrice + parseInt(item.price);
+          totalPrice.textContent = "৳ " + intPrice;
+        } else {
+          var li = document.createElement("li");
+          li.classList.add("items", "odd");
+          li.dataset.id = id;
+          li.innerHTML = `
+            <div class="infoWrap">
+              <div class="cartSection">
+                <img src="assets/${item.image}" alt="product_image" class="itemImg" />
+                <p class="itemNumber">#${id.toString().padStart(8,'0')}</p>
+                <h3>${item.name}</h3>
+                <p>
+                  <input id="quantity" type="text" class="qty" placeholder="1" value="1" /> x <p id="singlePrice">${item.price}</p>
+                </p>
+              </div>
+              <div class="prodTotal cartSection">
+              <p id="itemPrice">৳ ${Math.round(item.price)}</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
+              </div>
+            </div>`;
+          if(cartItemList){
+            cartItemList.appendChild(li);
+            counts[id] = 1;
+          }
         }
       }
     }
