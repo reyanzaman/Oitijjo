@@ -20,6 +20,11 @@ function generateCartItemsHTML(cartData) {
         // ID has already been seen, increment the quantity element
         var qtyInput = cartItemList.querySelector(`li[data-id="${id}"] .qty`);
         qtyInput.value = parseInt(qtyInput.value) + 1;
+
+        var totalPrice = cartItemList.querySelector(`li[data-id="${id}"] #itemPrice`);
+        intPrice = parseInt(totalPrice.textContent.substring(2));
+        intPrice = intPrice + parseInt(item.price);
+        totalPrice.textContent = "৳ " + intPrice;
       } else {
         // ID has not been seen, create the HTML and add to the cart
         var li = document.createElement("li");
@@ -32,18 +37,20 @@ function generateCartItemsHTML(cartData) {
               <p class="itemNumber">#${id.toString().padStart(8,'0')}</p>
               <h3>${item.name}</h3>
               <p>
-                <input id="quantity" type="text" class="qty" placeholder="1" value="1" /> x ${item.price}
+                <input id="quantity" type="text" class="qty" placeholder="1" value="1" /> x <p id="singlePrice">${item.price}</p>
               </p>
             </div>
             <div class="prodTotal cartSection">
-              <p>৳ ${Math.round(item.price)}</p>
+            <p id="itemPrice">৳ ${Math.round(item.price)}</p>
             </div>
             <div class="cartSection removeWrap">
               <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
             </div>
           </div>`;
-        cartItemList.appendChild(li);
-        counts[id] = 1; // Set the count for this ID to 1
+        if(li && cartItemList){
+          cartItemList.appendChild(li);
+          counts[id] = 1; // Set the count for this ID to 1
+        }
       }
     }
   }  
@@ -85,6 +92,11 @@ function removeFromCart(event) {
     qty--;
     qtyElement.val(qty);
 
+    var priceElement = li.find("#itemPrice");
+    var singlePriceElement = li.find("#singlePrice");
+    newPrice = parseInt(priceElement.text().substring(2)) - parseInt(singlePriceElement.text());
+    priceElement.text("৳ " + newPrice)
+
     // Remove product from cartData in local storage
     var cartData = JSON.parse(localStorage.getItem("cartData"));
     var productId = li.find(".itemNumber").text().substring(1);
@@ -119,14 +131,18 @@ function calculateCartCost(cartData) {
     subtotal = document.getElementById("subtotal");
     shipping = document.getElementById("shipping");
     total = document.getElementById("total");
+    checkout_btn = document.getElementById("checkout-btn");
 
-    subtotal.innerHTML = "৳ " + totalCost;
-    if(totalCost!=0){
-      var shippingCost = 50;
-    }else{
-      var shippingCost = 0;
-    }
+    if(subtotal){
+      subtotal.innerHTML = "৳ " + totalCost;
+      if(totalCost!=0){
+        var shippingCost = 50;
+      }else{
+        var shippingCost = 0;
+        checkout_btn.classList = "btn checkout continue disabled";
+      }
 
-    shipping.innerHTML = "৳ " + shippingCost;
-    total.innerHTML = "৳ " + (shippingCost + totalCost);
+      shipping.innerHTML = "৳ " + shippingCost;
+      total.innerHTML = "৳ " + (shippingCost + totalCost);
+  }
 }

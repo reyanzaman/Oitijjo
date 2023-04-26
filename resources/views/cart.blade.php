@@ -9,7 +9,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -97,7 +97,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 <li class="totalRow"><span class="label">Shipping</span><span id="shipping" class="value">৳ 50</span></li>
 
                 <li class="totalRow final"><span class="label">Total</span><span id="total" class="value">৳ 3050</span></li>
-                <li class="totalRow"><a href="{{ route('checkout') }}" class="btn checkout continue">Checkout</a></li>
+                <li class="totalRow"><a id="checkout-btn" href="{{ route('checkout') }}" class="btn checkout continue">Checkout</a></li>
             </ul>
         </div>
     </div>
