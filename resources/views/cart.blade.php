@@ -92,12 +92,11 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
 
         <div class="subtotal cf">
             <ul>
-                <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
+                <li class="totalRow"><span class="label">Subtotal</span><span id="subtotal" class="value">৳ 3000</span></li>
 
-                <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
+                <li class="totalRow"><span class="label">Shipping</span><span id="shipping" class="value">৳ 50</span></li>
 
-                <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
-                <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
+                <li class="totalRow final"><span class="label">Total</span><span id="total" class="value">৳ 3050</span></li>
                 <li class="totalRow"><a href="{{ route('checkout') }}" class="btn checkout continue">Checkout</a></li>
             </ul>
         </div>

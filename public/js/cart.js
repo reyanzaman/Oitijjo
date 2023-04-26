@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var cartData = JSON.parse(localStorage.getItem("cartData")) || [];
     generateCartItemsHTML(cartData);
+    calculateCartCost(cartData);
 });
 
 function generateCartItemsHTML(cartData) {
@@ -104,4 +105,28 @@ function removeFromCart(event) {
     }
 
     localStorage.setItem("cartItemCount", cartItemCount);
+    calculateCartCost(cartData);
+}
+
+function calculateCartCost(cartData) {
+    var totalCost = 0;
+
+    for (var i = 0; i < cartData.length; i++) {
+      var cost = parseInt(cartData[i]['price']);
+      totalCost = totalCost + cost;
+    }
+
+    subtotal = document.getElementById("subtotal");
+    shipping = document.getElementById("shipping");
+    total = document.getElementById("total");
+
+    subtotal.innerHTML = "৳ " + totalCost;
+    if(totalCost!=0){
+      var shippingCost = 50;
+    }else{
+      var shippingCost = 0;
+    }
+
+    shipping.innerHTML = "৳ " + shippingCost;
+    total.innerHTML = "৳ " + (shippingCost + totalCost);
 }

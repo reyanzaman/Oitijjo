@@ -226,7 +226,7 @@ a.remove:hover {
 /* TOTAL AND CHECKOUT  */
 .subtotal {
   float: right;
-  width: 35%;
+  width: 45%;
 }
 .subtotal .totalRow {
   padding: .5em;
