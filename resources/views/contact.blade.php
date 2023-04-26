@@ -9,7 +9,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order Tracking</title>
+    <title>Contact Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -76,7 +76,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
         </div>
     </div>
 
-    <!-- Tracking -->
+    <!-- Contact Form -->
 
     <footer class="footer bg-dark">
         <div class="container">

@@ -86,13 +86,12 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <div class="card-body">
                         <h4 class="card-title text-center mb-3">Khandoker Ashik Uz Zaman</h4>
                         <p class="card-text text-center">Hello, my name is Khandoker Ashik Uz Zaman, and I am a
-                            full-stack
-                            developer
-                            with [Number of years] of experience. My expertise includes
+                            full-stack developer
+                            My expertise includes
                             developing scalable web applications using a variety of programming languages, such as
                             JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React, Angular, and Vue, as well as back-end technologies like Node.js,
-                            Django, and Spring.</p>
+                            frameworks like React and Blade, as well as back-end technologies like Node.js, Express.js and
+                            php Laravel.</p>
                     </div>
                 </div>
             </div>
@@ -146,8 +145,10 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <br>
     <h3 class="text-center" style="color: green">Website made for Data & Design Lab Metaverse & Improved E-commerce
         Project</h3>
-    <br><br>
+    <br>
     </div>
+
+    <hr><br><br>
 
     <footer class="footer bg-dark">
         <div class="container">
@@ -157,21 +158,19 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     style="width: 200px; margin: auto; --progress-bar-color: transparent;">
                     <img src="assets/logo-2.png" class="img-fluid" alt="..."></img>
                 </div>
-
                 <br><br>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row justify-space-between align-items-center">
+                    <div class="col-md-5">
                         <h4 class="text-white mb-4">Contact Us</h4>
-                        <p class="text-muted">Afftabuddin Road.<br> Dhaka, Bangladesh</p>
+                        <p class="text-muted">Afftabuddin Road, Dhaka Bangladesh
                         <p class="text-muted">Phone: +880 123456789<br> Email: oitijjosupport@gmail.com</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <h4 class="text-white mb-4">Useful Links</h4>
                         <ul class="list-unstyled">
-                            <li><a href="#!">Home</a></li>
-                            <li><a href="#!">About</a></li>
-                            <li><a href="#!">Products</a></li>
-                            <li><a href="#!">Contact Us</a></li>
+                            <li><a href="{{ route('tracking') }}">Track Order</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                            <li><a href="https://www.dndlab.org/">DnD Lab</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -185,10 +184,9 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </div>
             </div>
             <div class="text-center p-3">
-                <p class="text-white">&copy; Copyright IUB 2023. All Right Reserved</p>
+                <p class="text-white">&copy; Copyright DnD Lab 2023. All Right Reserved</p>
             </div>
     </footer>
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

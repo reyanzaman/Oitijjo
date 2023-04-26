@@ -111,19 +111,18 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <img src="assets/logo-2.png" class="img-fluid" alt="..."></img>
                 </div>
                 <br><br>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row justify-space-between align-items-center">
+                    <div class="col-md-5">
                         <h4 class="text-white mb-4">Contact Us</h4>
-                        <p class="text-muted">Afftabuddin Road.<br> Dhaka, Bangladesh</p>
+                        <p class="text-muted">Afftabuddin Road, Dhaka Bangladesh
                         <p class="text-muted">Phone: +880 123456789<br> Email: oitijjosupport@gmail.com</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <h4 class="text-white mb-4">Useful Links</h4>
                         <ul class="list-unstyled">
-                            <li><a href="#!">Home</a></li>
-                            <li><a href="#!">About</a></li>
-                            <li><a href="#!">Products</a></li>
-                            <li><a href="#!">Contact Us</a></li>
+                            <li><a href="{{ route('tracking') }}">Track Order</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                            <li><a href="https://www.dndlab.org/">DnD Lab</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -137,7 +136,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </div>
             </div>
             <div class="text-center p-3">
-                <p class="text-white">&copy; Copyright IUB 2023. All Right Reserved</p>
+                <p class="text-white">&copy; Copyright DnD Lab 2023. All Right Reserved</p>
             </div>
     </footer>
 

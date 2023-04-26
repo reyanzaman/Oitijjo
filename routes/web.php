@@ -50,4 +50,8 @@ Route::get('/tracking', function () {
     return view('tracking');
 })->name('tracking');
 
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 require __DIR__.'/auth.php';
