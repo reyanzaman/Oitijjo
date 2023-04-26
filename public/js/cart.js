@@ -123,6 +123,14 @@ function removeFromCart(event) {
 
     localStorage.setItem("cartItemCount", cartItemCount);
     calculateCartCost(cartData);
+
+    var cartData = JSON.parse(localStorage.getItem("cartData"));
+    var cartItemList = document.getElementById("cartItemList");
+    if(cartData.length == 0) {
+      var li = document.createElement("li");
+      li.innerHTML = `<br><h4 style="color: grey; text-align: center;">Cart Empty</h4>`;
+      cartItemList.appendChild(li);
+    }
 }
 
 function calculateCartCost(cartData) {
