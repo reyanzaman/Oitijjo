@@ -164,4 +164,17 @@ a{
     .title-text{
         text-align: center;
     }
+    
+    @media only screen and (max-width: 1000px) {
+        .fa-cart-shopping{
+            margin: 30px 0px;
+        }
+        .navbar-nav .nav-item {
+            margin-bottom: 5px;
+        }
+
+        .btn-outline-success{
+            margin-top: 10px;
+        }
+    }
 }

@@ -16,24 +16,26 @@ function generateCartItemsHTML(cartData) {
     if(cartData.length == 0) {
       var li = document.createElement("li");
       li.innerHTML = `<br><h4 style="color: grey; text-align: center;">Cart Empty</h4>`;
-      cartItemList.appendChild(li);
+      if(cartItemList){
+        cartItemList.appendChild(li);
+      }
     }else{
       var counts = {};
       for (var i = 0; i < cartData.length; i++) {
         var item = cartData[i];
         var id = item.id;
         if (counts[id]) {
-          var qtyInput = cartItemList.querySelector(`li[data-id="${id}"] .qty`);
+          var qtyInput = cartItemList.querySelector(`li[id="${id}"] .qty`);
           qtyInput.value = parseInt(qtyInput.value) + 1;
 
-          var totalPrice = cartItemList.querySelector(`li[data-id="${id}"] #itemPrice`);
+          var totalPrice = cartItemList.querySelector(`li[id="${id}"] .itemPrice`);
           intPrice = parseInt(totalPrice.textContent.substring(2));
           intPrice = intPrice + parseInt(item.price);
           totalPrice.textContent = "৳ " + intPrice;
         } else {
           var li = document.createElement("li");
           li.classList.add("items", "odd");
-          li.dataset.id = id;
+          li.setAttribute("id", id);
           li.innerHTML = `
             <div class="infoWrap">
               <div class="cartSection">
@@ -41,11 +43,11 @@ function generateCartItemsHTML(cartData) {
                 <p class="itemNumber">#${id.toString().padStart(8,'0')}</p>
                 <h3>${item.name}</h3>
                 <p>
-                  <input id="quantity" type="text" class="qty" placeholder="1" value="1" /> x <p id="singlePrice">${item.price}</p>
+                  <input type="text" class="qty" placeholder="1" value="1" /> x <p class="singlePrice">${item.price}</p>
                 </p>
               </div>
               <div class="prodTotal cartSection">
-              <p id="itemPrice">৳ ${Math.round(item.price)}</p>
+                <p class="itemPrice">৳ ${Math.round(item.price)}</p>
               </div>
               <div class="cartSection removeWrap">
                 <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
@@ -56,6 +58,10 @@ function generateCartItemsHTML(cartData) {
             counts[id] = 1;
           }
         }
+        var qtyInput = li.querySelector(".qty");
+        qtyInput.addEventListener("input", function(event) {
+          updateCart(event.target.value, id, item.price);
+        });
       }
     }
   }  
@@ -92,13 +98,13 @@ function removeFromCart(event) {
     cartItemCountElement.innerText = cartItemCount;
 
     var li = $(event.target).closest("li");
-    var qtyElement = li.find("#quantity");
+    var qtyElement = li.find(".qty");
     var qty = parseInt(qtyElement.val());
     qty--;
     qtyElement.val(qty);
 
-    var priceElement = li.find("#itemPrice");
-    var singlePriceElement = li.find("#singlePrice");
+    var priceElement = li.find(".itemPrice");
+    var singlePriceElement = li.find(".singlePrice");
     newPrice = parseInt(priceElement.text().substring(2)) - parseInt(singlePriceElement.text());
     priceElement.text("৳ " + newPrice)
 
@@ -157,5 +163,46 @@ function calculateCartCost(cartData) {
 
       shipping.innerHTML = "৳ " + shippingCost;
       total.innerHTML = "৳ " + (shippingCost + totalCost);
+  }
+}
+
+function updateCart(qty, itemID, price){
+  var li = document.getElementById(itemID);
+  if(li){
+    var newPrice = qty * price;
+    var itemPriceElement = li.querySelector(".itemPrice");
+    itemPriceElement.textContent = "৳ " + Math.round(newPrice);
+
+    var cartData = JSON.parse(localStorage.getItem("cartData"));
+    var quantity = 0;
+    for(var i = 0; i < cartData.length; i++) {
+      if (cartData[i].id == itemID) {
+          quantity++;
+      }
+    }
+
+    var cartItemCountElement = document.getElementById("cartItemCount");
+    var cartItemCount = parseInt(cartItemCountElement.innerText);
+    if(quantity>qty){
+      //Remove (quantity - qty) elements from cartData
+      for(var i = 0; i < cartData.length; i++) {
+        if (cartData[i].id == itemID && quantity>qty) {
+          cartData.splice(i, 1);
+          quantity--;
+          cartItemCount = quantity;
+        }
+      }
+    }else{
+      //Add (qty - quantity) elements to cartData with the same details and everything as the product with itemID
+      var item = cartData.find(item => item.id === itemID);
+      for (var i = quantity; i < qty; i++) {
+        cartData.push(Object.assign({}, item));
+        cartItemCount++;
+      }
+    }
+    cartItemCountElement.innerText = cartItemCount; 
+    localStorage.setItem("cartItemCount", cartItemCount);
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+    calculateCartCost(cartData); 
   }
 }

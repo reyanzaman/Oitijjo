@@ -6,18 +6,21 @@ function clickOpt1(event){
     box1.className = "type selected";
     box2.className = "type";
     box3.className = "type";
+    document.getElementById("selected_button").value = "Cash";
 }
 
 function clickOpt2(event){
     box1.className = "type";
     box2.className = "type selected";
     box3.className = "type";
+    document.getElementById("selected_button").value = "Bkash";
 }
 
 function clickOpt3(event){
     box1.className = "type";
     box2.className = "type";
     box3.className = "type selected";
+    document.getElementById("selected_button").value = "Nagad";
 }
 
 function proceed(event){
@@ -37,9 +40,47 @@ function proceed(event){
     </div>
     `;
 
-    var cartItemCountElement = document.getElementById("cartItemCount");
-    var cartItemCount = 0;
-    cartItemCountElement.innerText = cartItemCount;
-    localStorage.setItem("cartItemCount", cartItemCount);
-    localStorage.removeItem("cartData");
+    var cartData = JSON.parse(localStorage.getItem("cartData"));
+    var formData = new FormData();
+    formData.append('cartData', JSON.stringify(cartData));
+    formData.append('name', document.getElementById('name').value);
+    formData.append('address', document.getElementById('address').value);
+    formData.append('city', document.getElementById('city').value);
+    formData.append('phone', document.getElementById('phone').value);
+    formData.append('alt_number', document.getElementById('alt_number').value);
+    formData.append('selected_button', document.getElementById("selected_button").value);
+
+    let totalPrice = 0;
+    var quantity = {};
+    for (var i = 0; i < cartData.length; i++) {
+        var item = cartData[i];
+        var id = item.id;
+        var itemPrice = parseInt(item.price);
+        totalPrice = totalPrice + itemPrice;
+        if(quantity[id]){
+            quantity[id] += 1;
+        }else{
+            quantity[id] = 1;
+        }
+    }
+    formData.append('quantity', JSON.stringify(Object.entries(quantity)));
+    formData.append('totalPrice', totalPrice);
+
+    // Send the form data to the backend using fetch API
+    fetch('/order', {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: formData
+    }).then(function(response) {
+        var cartItemCountElement = document.getElementById("cartItemCount");
+        var cartItemCount = 0;
+        cartItemCountElement.innerText = cartItemCount;
+        localStorage.setItem("cartItemCount", cartItemCount);
+        localStorage.removeItem("cartData");
+    }).catch(function(error) {
+        console.log("Error has occured!")
+        // Handle any errors that occurred while sending the request
+    });
 }

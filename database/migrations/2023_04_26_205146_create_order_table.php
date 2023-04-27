@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
             $table->string('method');
             $table->string('number');
-            $table->string('alt-number')->nullable();
+            $table->string('alt_number')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

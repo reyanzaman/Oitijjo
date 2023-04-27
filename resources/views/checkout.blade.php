@@ -9,6 +9,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -83,81 +84,85 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
             <div class="card-title">
                 <h2>Payment</h2>
             </div>
-            <div class="card-body">
-                <div class="payment-type">
-                    <h4>Choose payment method below</h4>
-                    <div class="types flex justify-space-between">
-                        <div onclick="clickOpt1(event)" id="opt1" class="type selected">
-                            <div class="logo">
-                                <i class="far fa-solid fa-wallet"></i>
+            <form id="payment-form" method="POST" action="/order">
+                @csrf
+                <div class="card-body">
+                    <div class="payment-type">
+                        <h4>Choose payment method below</h4>
+                        <div class="types flex justify-space-between">
+                            <input type="hidden" name="selected_button" id="selected_button" value="opt1">
+                            <div onclick="clickOpt1(event)" id="opt1" class="type selected">
+                                <div class="logo">
+                                    <i class="far fa-solid fa-wallet"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Cash On Delivery</p>
+                                </div>
                             </div>
-                            <div class="text">
-                                <p>Cash On Delivery</p>
+                            <div onclick="clickOpt2(event)" id="opt2" class="type">
+                                <div class="logo">
+                                    <img class="fab" src="assets/Bkash.png" style="width:60px;"></img>
+                                </div>
+                                <div class="text">
+                                    <p>Pay with Bkash</p>
+                                </div>
                             </div>
-                        </div>
-                        <div onclick="clickOpt2(event)" id="opt2" class="type">
-                            <div class="logo">
-                                <img class="fab" src="assets/Bkash.png" style="width:60px;"></img>
-                            </div>
-                            <div class="text">
-                                <p>Pay with Bkash</p>
-                            </div>
-                        </div>
-                        <div onclick="clickOpt3(event)" id="opt3" class="type">
-                            <div class="logo">
-                                <img class="fab" src="assets/Nagad.png" style="width:80px"></img>
-                            </div>
-                            <div class="text">
-                                <p>Pay with Nagad</p>
+                            <div onclick="clickOpt3(event)" id="opt3" class="type">
+                                <div class="logo">
+                                    <img class="fab" src="assets/Nagad.png" style="width:80px"></img>
+                                </div>
+                                <div class="text">
+                                    <p>Pay with Nagad</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="payment-info flex justify-space-between align-items-start">
-                    <div class="column billing">
-                        <div class="title">
-                            <h4>Billing Info</h4>
-                        </div>
-                        <div class="field full">
-                            <label for="name">Full Name</label>
-                            <input id="name" type="text" placeholder="Full Name" required>
-                        </div>
-                        <div class="field full">
-                            <label for="address">Billing Address</label>
-                            <input id="address" type="text" placeholder="Billing Address" required>
-                        </div>
-                        <div class="flex justify-space-between">
+                    <div class="payment-info flex justify-space-between align-items-start">
+                        <div class="column billing">
+                            <div class="title">
+                                <h4>Billing Info</h4>
+                            </div>
                             <div class="field full">
-                                <label for="city">City</label>
-                                <input id="city" type="text" placeholder="City" required>
+                                <label for="name">Full Name</label>
+                                <input id="name" name="name" type="text" placeholder="Full Name" required>
+                            </div>
+                            <div class="field full">
+                                <label for="address">Billing Address</label>
+                                <input id="address" name="address" type="text" placeholder="Billing Address" required>
+                            </div>
+                            <div class="flex justify-space-between">
+                                <div class="field full">
+                                    <label for="city">City</label>
+                                    <input id="city" name="city" type="text" placeholder="City" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column shipping">
+                            <div class="title">
+                                <h4 style="visibility:hidden;">...</h4>
+                            </div>
+                            <div class="field full">
+                                <label for="phone">Contact Number</label>
+                                <input id="phone" name="phone" type="text" placeholder="Contact Number" required>
+                            </div>
+                            <div class="field full">
+                                <label for="phone">Alternate Contact Number</label>
+                                <input id="alt_number" name="alt_number" type="text" placeholder="Contact Number (optional)">
                             </div>
                         </div>
                     </div>
-                    <div class="column shipping">
-                        <div class="title">
-                            <h4 style="visibility:hidden;">...</h4>
-                        </div>
-                        <div class="field full">
-                            <label for="phone">Contact Number</label>
-                            <input id="phone" type="text" placeholder="Contact Number" required>
-                        </div>
-                        <div class="field full">
-                            <label for="phone">Alternate Contact Number</label>
-                            <input id="phone" type="text" placeholder="Contact Number (optional)">
-                        </div>
+                </div>
+                <div class="card-actions flex justify-space-between">
+                    <div class="flex-start">
+                        <a href="{{ route('products') }}" class="button button-secondary">Return to Store</a>
+                    </div>
+                    <div class="flex-end">
+                        <a href="{{ route('cart') }}" class="button button-link">Back to Cart</a>
+                        <a onclick="proceed(event)" class="button button-primary">Proceed</a>
                     </div>
                 </div>
             </div>
-            <div class="card-actions flex justify-space-between">
-                <div class="flex-start">
-                    <a href="{{ route('products') }}" class="button button-secondary">Return to Store</a>
-                </div>
-                <div class="flex-end">
-                    <a href="{{ route('cart') }}" class="button button-link">Back to Cart</a>
-                    <a onclick="proceed(event)" class="button button-primary">Proceed</a>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 
     <br><br>
