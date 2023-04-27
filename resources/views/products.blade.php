@@ -66,7 +66,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/holder.glb" ar autoplay poster="assets/holder_p.png"
+                <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Holder</h5>
@@ -76,7 +76,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/shell.glb" ar autoplay poster="assets/shell_p.png"
+                <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Shell</h5>
@@ -86,7 +86,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/croc.glb" ar autoplay poster="assets/komir_p.png"
+                <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Komir</h5>
@@ -96,7 +96,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/dhakni_bati.glb" ar autoplay poster="assets/bati_p.png"
+                <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Bati</h5>
@@ -110,7 +110,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/basha.glb" ar autoplay poster="assets/basha_p.png"
+                <model-viewer class="viewer" src="assets/matir_basha.glb" ar autoplay poster="assets/matir_basha_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Basha</h5>
@@ -120,7 +120,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/vase.glb" ar autoplay poster="assets/fuldani_p.png"
+                <model-viewer class="viewer" src="assets/matir_fuldani.glb" ar autoplay poster="assets/matir_fuldani_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Fuldani</h5>
@@ -130,7 +130,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/jug.glb" ar autoplay poster="assets/jug_p.png"
+                <model-viewer class="viewer" src="assets/matir_jug.glb" ar autoplay poster="assets/matir_jug_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Jug</h5>
@@ -140,7 +140,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/box.glb" ar autoplay poster="assets/baksho_p.png"
+                <model-viewer class="viewer" src="assets/matir_baksho.glb" ar autoplay poster="assets/matir_baksho_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Baksho</h5>

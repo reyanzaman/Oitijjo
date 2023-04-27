@@ -81,7 +81,7 @@ $data = [
         <div class="row">
             <div class="col-lg-6 col-sm-12">
                 <model-viewer id="model" class="popular-viewer" src="assets/shokher_hari.glb" ar autoplay
-                    poster="assets/hari_p.png" shadow-intensity="0" camera-controls touch-action="pan-y"></model-viewer>
+                    poster="assets/shokher_hari_h.png" shadow-intensity="0" camera-controls touch-action="pan-y"></model-viewer>
             </div>
             <div class="col-lg-6 col-sm-12 text-col popular-text">
                 <h1 id="prod-name" class="title-text">Shokher Hari</h1>
@@ -108,7 +108,7 @@ $data = [
                 <br><br>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img1" class="img-fluid" src="assets/shokher_hari.png">
+                        <img id="prod-img1" class="img-fluid" src="assets/shokher_hari1.png">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
                         <img id="prod-img2" class="img-fluid" src="assets/shokher_hari2.png">
@@ -132,7 +132,7 @@ $data = [
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/holder.glb" ar autoplay poster="assets/holder_p.png"
+                <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Holder</h5>
@@ -142,7 +142,7 @@ $data = [
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/shell.glb" ar autoplay poster="assets/shell_p.png"
+                <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Shell</h5>
@@ -152,7 +152,7 @@ $data = [
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/croc.glb" ar autoplay poster="assets/komir_p.png"
+                <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Komir</h5>
@@ -162,7 +162,7 @@ $data = [
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/dhakni_bati.glb" ar autoplay poster="assets/bati_p.png"
+                <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Bati</h5>
