@@ -13,7 +13,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/tracking.css">
 
     <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
@@ -77,6 +77,40 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     </div>
 
     <!-- Tracking -->
+    <br><br><br>
+    <form id="tracking-form" method="GET" action="/status">
+        <h2 style="text-align:center;">Order Tracking</h2><br>
+        <div class="field full row">
+            <div class="col-lg-8">
+                <input id="orderID" name="orderID" type="number" placeholder="Order ID" required>
+            </div>
+            <div class="col-lg-4">
+                <a onclick="updateStatus(event)" type="submit" class="button-primary button">Track Order</a>
+            </div>
+        </div>
+    </form>
+    <div id="error"></div>
+    <div id="main" class="main">
+        <div class="hh-grayBox pt45 pb20">
+            <div class="row justify-content-between">
+                <div id="pending" class="order-tracking completed">
+                    <span class="is-complete"></span>
+                    <p>Pending<br><span id="pending_date">Mon, June 24</span></p>
+                </div>
+                <div id="processing" class="order-tracking">
+                    <span class="is-complete"></span>
+                    <p>Processing<br><span id="processing_date">Tue, June 25</span></p>
+                </div>
+                <div id="completed" class="order-tracking cancelled">
+                    <span class="is-complete"></span>
+                    <p>Completed<br><span id="completed_date">Fri, June 28</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+    <br><br><br>
 
     <footer class="footer bg-dark">
         <div class="container">

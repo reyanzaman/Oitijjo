@@ -7,6 +7,7 @@ use App\Models\OrderItem;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -70,4 +71,17 @@ class CheckoutController extends Controller
             'message' => 'Order placed successfully'
         ]);
     }
+
+    public function orderStatus(Request $request){
+        $id = $request->input('id');
+        $order = Order::find($id);
+        if (!$order) {
+            error_log("Order not found");
+            return response()->json(['error' => 'Order not found'], 404);
+        }
+        $status = $order->status;
+        $updated_at = $order->updated_at;
+        error_log("Order found");
+        return response()->json(['status' => $status, 'updated_at' => $updated_at]);
+    }    
 }

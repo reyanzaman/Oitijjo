@@ -1,0 +1,214 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+body {
+  color: #333;
+  font-family: 'Roboto';
+}
+
+img {
+  max-width: 100%;
+}
+
+.nav-logo{
+    margin-top: 5px;
+    display: inline-block;
+    height: auto;
+    width: 50vw;
+    max-width: 20rem;
+}
+
+.logo:hover{
+    filter:sepia();
+}
+
+.navbar-custom {
+    background-color: rgb(245, 245, 245);
+    padding-bottom: 1px;
+    border-bottom: 8px solid rgba(234, 234, 234, 0.45) 
+}
+
+.nav-link:hover, a{
+    color: green;
+}
+
+.fa-cart-shopping{
+    color: #55a34d;
+}
+
+.fa-cart-shopping:hover{
+    color: #3c7425;
+}
+
+.main {
+	display: none;
+}
+
+.field {
+    margin-bottom: 25px;
+}
+
+.field.full {
+    width: 50%;
+    margin:auto;
+}
+
+.field input {
+    padding: 12px;
+    border: 2px solid #e8ebed;
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    float:right;
+    margin: 0;
+}
+
+.field input:placeholder {
+    color: #e8ebed !important;
+}
+
+.button {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 14.5px 25px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    background: transparent;
+    border: 2px solid transparent;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.button.button-primary {
+    background: #55a34d;
+    color: #fff !important;
+}
+
+.button.button-primary:hover {
+    background: #6fb936;
+}
+
+.errorMsg{
+	color: red;
+	text-align: center;
+	margin-top: 2em;
+}
+
+.hh-grayBox {
+	background-color: #f6f9fd;
+	padding: 55px;
+    margin-top: 60px;
+}
+.pt45{padding-top:45px;}
+.order-tracking{
+	text-align: center;
+	width: 33.33%;
+	position: relative;
+	display: block;
+}
+.order-tracking .is-complete{
+	display: block;
+	position: relative;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	border: 0px solid #AFAFAF;
+	background-color: #f7be16;
+	margin: 0 auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+	z-index: 2;
+}
+.order-tracking .is-complete:after {
+	display: block;
+	position: absolute;
+	content: '';
+	height: 14px;
+	width: 7px;
+	top: -2px;
+	bottom: 0;
+	left: 5px;
+	margin: auto 0;
+	border: 0px solid #AFAFAF;
+	border-width: 0px 2px 2px 0;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.order-tracking.completed .is-complete{
+	border-color: #27aa80;
+	border-width: 0px;
+	background-color: #27aa80;
+}
+.order-tracking.completed .is-complete:after {
+	border-color: #fff;
+	border-width: 0px 3px 3px 0;
+	width: 7px;
+	left: 11px;
+	opacity: 1;
+}
+.order-tracking.cancelled .is-complete{
+	display: block;
+	position: relative;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	border: 0px solid #AFAFAF;
+	background-color: #f71616;
+	margin: 0 auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+	z-index: 2;
+}
+.order-tracking.cancelled .is-complete:after {
+	display: block;
+	position: absolute;
+	content: '';
+	height: 14px;
+	width: 7px;
+	top: -2px;
+	bottom: 0;
+	left: 5px;
+	margin: auto 0;
+	border: 0px solid #690e0e;
+	border-width: 0px 2px 2px 0;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.order-tracking p {
+	color: #A4A4A4;
+	font-size: 16px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	line-height: 20px;
+}
+.order-tracking p span{font-size: 14px;}
+.order-tracking.completed p{color: #000;}
+.order-tracking::before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: calc(100% - 40px);
+	background-color: #f7be16;
+	top: 13px;
+	position: absolute;
+	left: calc(-50% + 20px);
+	z-index: 0;
+}
+.order-tracking.cancelled::before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: calc(100% - 40px);
+	background-color: #f71616;
+	top: 13px;
+	position: absolute;
+	left: calc(-50% + 20px);
+	z-index: 0;
+}
+.order-tracking:first-child:before{display: none;}
+.order-tracking.completed:before{background-color: #27aa80;}

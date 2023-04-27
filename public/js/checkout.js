@@ -81,6 +81,5 @@ function proceed(event){
         localStorage.removeItem("cartData");
     }).catch(function(error) {
         console.log("Error has occured!")
-        // Handle any errors that occurred while sending the request
     });
 }

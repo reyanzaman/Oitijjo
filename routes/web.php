@@ -54,4 +54,6 @@ Route::middleware(['web'])->group(function () {
     Route::post('/order', 'App\Http\Controllers\CheckoutController@orderCart')->name('order');
 });
 
+Route::get('/status', 'App\Http\Controllers\CheckoutController@orderStatus')->name('status');
+
 require __DIR__.'/auth.php';
