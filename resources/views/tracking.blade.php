@@ -95,7 +95,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
             <div class="row justify-content-between">
                 <div id="pending" class="order-tracking completed">
                     <span class="is-complete"></span>
-                    <p>Pending<br><span id="pending_date">Mon, June 24</span></p>
+                    <p id="pending-text">Pending<br><span id="pending_date">Mon, June 24</span></p>
                 </div>
                 <div id="processing" class="order-tracking">
                     <span class="is-complete"></span>
