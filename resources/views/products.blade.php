@@ -70,6 +70,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Holder</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -80,6 +81,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Shell</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -90,6 +92,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Komir</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -100,6 +103,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Bati</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -114,6 +118,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Basha</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -124,6 +129,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Fuldani</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -134,6 +140,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Jug</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>
@@ -144,6 +151,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Baksho</h5>
+                    <h6 class="seller">From Seller_Name</h6>
                 </a>
                 <h5 class="small-price-text">
                     <bold>200tk/-</bold>

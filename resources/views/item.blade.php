@@ -85,6 +85,9 @@ $data = [
             </div>
             <div class="col-lg-6 col-sm-12 text-col popular-text">
                 <h1 id="prod-name" class="title-text">Shokher Hari</h1>
+                <h5 id="seller">
+                    Sold by Rahman Crafts
+                </h5>
                 <br>
                 <p id="prod-description" style="text-align: justify;">Make this artistic piece of Bangladeshi art and culture your own.
                     We try to give you the best & most aesthetic products. Browse through all the products from

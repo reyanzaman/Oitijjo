@@ -11,11 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('seller', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('address');
+            $table->string('contact');
+            $table->timestamps();
+        });
+        
         Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->decimal('price');
             $table->text('description');
+            $table->unsignedBigInteger('seller_id');
             $table->decimal('length');
             $table->decimal('width');
             $table->decimal('height');
@@ -25,6 +34,8 @@ return new class extends Migration
             $table->string('image2');
             $table->string('image3');
             $table->timestamps();
+
+            $table->foreign('seller_id')->references('id')->on('seller')->onDelete('cascade');
         });
     }
 
