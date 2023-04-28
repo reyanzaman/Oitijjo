@@ -56,4 +56,10 @@ Route::middleware(['web'])->group(function () {
 
 Route::get('/status', 'App\Http\Controllers\CheckoutController@orderStatus')->name('status');
 
+Route::get('/delivery', function () {
+    return view('panels/delivery');
+})->name('delivery');
+
+Route::post('/deliveryStatus', 'App\Http\Controllers\DeliveryController@updateStatus')->name('deliveryStatus');
+
 require __DIR__.'/auth.php';

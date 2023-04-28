@@ -37,7 +37,7 @@ function updateStatus(event) {
             processing.classList = "order-tracking completed";
             completed.classList = "order-tracking";
             pending_date.innerText = "";
-            processing_date.innerText = "readableDate";
+            processing_date.innerText = readableDate;
             completed_date.innerText = "";
         }else if(data.status=="completed"){
             pending.classList = "order-tracking completed";
@@ -45,7 +45,7 @@ function updateStatus(event) {
             completed.classList = "order-tracking completed";
             pending_date.innerText = "";
             processing_date.innerText = "";
-            completed_date.innerText = "readableDate";
+            completed_date.innerText = readableDate;
         }else if(data.status=="cancelled"){
             pending.classList = "order-tracking cancelled";
             processing.classList = "order-tracking cancelled";
