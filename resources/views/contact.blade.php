@@ -77,7 +77,23 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     </div>
 
     <!-- Contact Form -->
+    <div class="container">
+        <h1>Contact us</h1>
+        <p>
+            <form action="Contact.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="">
+                <label for="message">Message:</label>
+                <textarea name="message" id="" cols="30" rows="10"></textarea>
+                <input type="submit" name="submit" value="Send">
+        </p>
+        
+    </div>
 
+
+    <!-- Footer -->
     <footer class="footer bg-dark">
         <div class="container">
             <div class="container">
@@ -115,6 +131,77 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 <p class="text-white">&copy; Copyright DnD Lab 2023. All Right Reserved</p>
             </div>
     </footer>
+    <!-- css of the form -->
+    <style>
+
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size: 59px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+p{
+    color: black;
+    
+}
+p,input,textarea,label{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    color: black;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 5%;
+}
+
+form{
+    color: black;
+    max-width: 500px;
+    margin: 0 auto;
+    color: black;
+    text-align: left;
+    padding: 20px 0;
+}
+input,textarea,label{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    
+}
+input,textarea{
+    background-color: gainsboro;
+    border: 0;
+    
+}
+input[type=submit]{
+    background-color: rgb(34,139,34);
+    padding: 15px 0;
+    color: white;
+    font-size: 20px bold;
+    border-bottom: none;
+    margin-top: 30px;
+    transition: all .3s ease;
+
+}
+input[type=submit]:hover{
+    background: mediumseagreen;
+    
+}
+
+input,textarea{
+    color: black;
+    font-size: 18px;
+    padding: 8px;
+}
+textarea:focus{
+    outline: 2px solid black;
+}
+
+</style>
 
     <script src="js/track.js"></script>
 
