@@ -1,6 +1,7 @@
 @php
 $cart = session()->get('cart');
 $cartItemCount = is_array($cart) ? count($cart) : 0;
+$isLoggedIn = auth()->check();
 @endphp
 
 <!DOCTYPE html>
@@ -10,8 +11,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -24,10 +24,8 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid mx-4">
-            <a class="logo" href="{{ route('home') }}"><img src="assets/logo.png" alt="Logo"
-                    draggable="false" class="nav-logo" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="logo" href="{{ route('home') }}"><img src="assets/logo.png" alt="Logo" draggable="false" class="nav-logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -42,12 +40,14 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="{{ route('about') }}">About</a>
                     </li>
+                    @if($isLoggedIn)
                     <li class="nav-item mx-2">
-                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="btn btn-outline-success btn-rounded"
-                            href="{{ route('login') }}">Sign in</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-success btn-rounded">
+                                Log Out
+                            </button>
+                        </form>
                     </li>
                     <li class="nav-item mx-4">
                         <a href="{{ route('cart') }}">
@@ -55,6 +55,28 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
                     </li>
+                    @else
+                    <li class="nav-item mx-2">
+                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
+                    </li>
+                    @endif
+                    <!-- <li class="nav-item mx-2">
+                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="btn btn-outline-success btn-rounded"
+                            href="{{ route('login') }}">Sign in</a>
+                    </li>
+
+                    <li class="nav-item mx-4">
+                        <a href="{{ route('cart') }}">
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                        </a>
+                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -69,8 +91,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <div class="container image-container">
         <div class="row">
             <div class="col-lg-6 col-sm-12">
-                <model-viewer class="popular-viewer" src="assets/shokher_hari.glb" ar autoplay
-                    poster="assets/shokher_hari_h.png" shadow-intensity="0" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="popular-viewer" src="assets/shokher_hari.glb" ar autoplay poster="assets/shokher_hari_h.png" shadow-intensity="0" camera-controls touch-action="pan-y"></model-viewer>
             </div>
             <div class="col-lg-6 col-sm-12 text-col popular-text">
                 <h1 class="title-text">Most Popular Product</h1>
@@ -85,20 +106,18 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                         <p class="price-text">500Tk/-</p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <a class="btn btn-outline-success btn-lg buy-btn"
-                            href="{{ route('item') }}">View Product</a>
+                        <a class="btn btn-outline-success btn-lg buy-btn" href="{{ route('item') }}">View Product</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-   <!-- Gallery -->
-   <div class="container">
+    <!-- Gallery -->
+    <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Holder</h5>
                 </a>
@@ -107,8 +126,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Shell</h5>
                 </a>
@@ -117,8 +135,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Komir</h5>
                 </a>
@@ -127,8 +144,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Bati</h5>
                 </a>
@@ -141,8 +157,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_basha.glb" ar autoplay poster="assets/matir_basha_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_basha.glb" ar autoplay poster="assets/matir_basha_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Basha</h5>
                 </a>
@@ -151,8 +166,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_fuldani.glb" ar autoplay poster="assets/matir_fuldani_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_fuldani.glb" ar autoplay poster="assets/matir_fuldani_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Fuldani</h5>
                 </a>
@@ -161,8 +175,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_jug.glb" ar autoplay poster="assets/matir_jug_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_jug.glb" ar autoplay poster="assets/matir_jug_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Jug</h5>
                 </a>
@@ -171,8 +184,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 </h5>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_baksho.glb" ar autoplay poster="assets/matir_baksho_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer class="viewer" src="assets/matir_baksho.glb" ar autoplay poster="assets/matir_baksho_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="{{ route('item') }}">
                     <h5 class="product-text">Matir Baksho</h5>
                 </a>
@@ -192,8 +204,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
         <div class="container">
             <div class="container">
                 <br><br>
-                <div class="row justify-content-center align-items-center"
-                    style="width: 200px; margin: auto; --progress-bar-color: transparent;">
+                <div class="row justify-content-center align-items-center" style="width: 200px; margin: auto; --progress-bar-color: transparent;">
                     <img src="assets/logo-2.png" class="img-fluid" alt="..."></img>
                 </div>
                 <br><br>
@@ -226,18 +237,15 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
             </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) { 
+        document.addEventListener("DOMContentLoaded", function(event) {
             var cartItemCountElement = document.getElementById("cartItemCount");
             if (cartItemCountElement) {
                 var cartItemCount = localStorage.getItem('cartItemCount');

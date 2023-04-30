@@ -1,6 +1,7 @@
 @php
 $cart = session()->get('cart');
 $cartItemCount = is_array($cart) ? count($cart) : 0;
+$isLoggedIn = auth()->check();
 @endphp
 
 <!DOCTYPE html>
@@ -41,7 +42,31 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="{{ route('about') }}">About</a>
+                        </li>
+                        @if($isLoggedIn)
+                    <li class="nav-item mx-2">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-success btn-rounded">
+                                Log Out
+                            </button>
+                        </form>
                     </li>
+                    <li class="nav-item mx-4">
+                        <a href="{{ route('cart') }}">
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                        </a>
+                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                    </li>
+                    @else
+                    <li class="nav-item mx-2">
+                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
+                    </li>
+                    @endif
+                    <!-- 
                     <li class="nav-item mx-2">
                         <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
                     </li>
@@ -54,7 +79,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

@@ -64,6 +64,10 @@ Route::get('/delivery', function () {
     return view('panels/delivery');
 })->name('delivery');
 
+Route::get('/admin', function () {
+    return view('panels/admin');
+})->name('admin');
+
 Route::post('/deliveryStatus', 'App\Http\Controllers\DeliveryController@updateStatus')->name('deliveryStatus');
 
 require __DIR__.'/auth.php';

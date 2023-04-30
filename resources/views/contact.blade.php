@@ -1,7 +1,37 @@
 @php
 $cart = session()->get('cart');
 $cartItemCount = is_array($cart) ? count($cart) : 0;
+$isLoggedIn = auth()->check();
 @endphp
+
+<?php
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'oitijjo';
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_POST["submit"])){
+    $name=$_POST["name"];
+    $email=$_POST["email"];
+    $message=$_POST["message"];
+
+    $sql="INSERT INTO `contactus` ( `name`, `email`, `message`) VALUES ( '$name', '$email', '$message');";
+
+    if(mysqli_query($conn, $sql)){
+        echo"Form Submitted";
+    }
+    else{
+        echo"Sorry!Form not submitted";
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +72,30 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="{{ route('about') }}">About</a>
                     </li>
+                    @if($isLoggedIn)
                     <li class="nav-item mx-2">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-success btn-rounded">
+                                Log Out
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="{{ route('cart') }}">
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                        </a>
+                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                    </li>
+                    @else
+                    <li class="nav-item mx-2">
+                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
+                    </li>
+                    @endif
+                    <!-- <li class="nav-item mx-2">
                         <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
                     </li>
                     <li class="nav-item mx-2">
@@ -54,7 +107,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -80,7 +133,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <div class="container">
         <h1>Contact us</h1>
         <p>
-            <form action="Contact.php" method="POST">
+            <form action="contact.blade.php" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="">
                 <label for="email">Email:</label>
@@ -88,7 +141,10 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 <label for="message">Message:</label>
                 <textarea name="message" id="" cols="30" rows="10"></textarea>
                 <input type="submit" name="submit" value="Send">
-        </p>
+            </form>
+            </p>
+
+
         
     </div>
 
@@ -134,6 +190,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
     <!-- css of the form -->
     <style>
 
+ 
 
 h1{
     font-family: 'Playfair Display', serif;
