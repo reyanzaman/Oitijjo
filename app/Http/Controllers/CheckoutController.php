@@ -71,7 +71,7 @@ class CheckoutController extends Controller
             'message' => 'Order placed successfully'
         ]);
     }
-    
+
     public function orderStatus(Request $request){
         $id = $request->input('id');
         $order = Order::find($id);

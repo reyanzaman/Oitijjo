@@ -4,10 +4,6 @@ function updateStatus(event) {
     var id = document.getElementById("orderID").value;
     var errorElement = document.getElementById("error");
 
-    while (errorElement.firstChild) {
-      errorElement.removeChild(errorElement.firstChild);
-    }
-
     fetch('/status?id=' + encodeURIComponent(id))
       .then(function(response) {
         if (!response.ok) {
@@ -25,7 +21,6 @@ function updateStatus(event) {
         var pending_date = document.getElementById("pending_date");
         var processing_date = document.getElementById("processing_date");
         var completed_date = document.getElementById("completed_date");
-        var pending_text = document.getElementById("pending_text");
 
         const date = new Date(data.updated_at);
         const readableDate = date.toLocaleDateString();
@@ -58,7 +53,6 @@ function updateStatus(event) {
             pending_date.innerText = readableDate;
             processing_date.innerText = "";
             completed_date.innerText = "";
-            pending_text.innerText = "Cancelled";
         }
       })
       .catch(function(error) {

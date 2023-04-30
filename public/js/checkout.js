@@ -63,10 +63,6 @@ function proceed(event){
             quantity[id] = 1;
         }
     }
-
-    delivery_fee = 50;
-    totalPrice = totalPrice + delivery_fee;
-
     formData.append('quantity', JSON.stringify(Object.entries(quantity)));
     formData.append('totalPrice', totalPrice);
 

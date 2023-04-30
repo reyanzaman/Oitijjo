@@ -36,7 +36,7 @@ $cartItemCount = is_array($cart) ? count($cart) : 0;
                 <ul class="navbar-nav ml-auto align-items-center">
                     <li class="nav-item mx-2">
                         <a class="btn btn-outline-success btn-rounded"
-                            href="{{ route('login') }}">Logout</a>
+                            href="">Logout</a>
                     </li>
                 </ul>
             </div>
