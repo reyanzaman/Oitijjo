@@ -10,14 +10,14 @@ $isLoggedIn = auth()->check();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
 
     <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -100,79 +100,31 @@ $isLoggedIn = auth()->check();
         </div>
     </div>
 
-    <hr class="my-5">
+    <!-- Cart -->
+    <div class="wrap cf">
+        <div class="heading cf">
+            <h1>My Cart</h1>
+            <a href="{{ route('products') }}" class="continue">Continue Shopping</a>
+        </div>
+        <div class="cart heading">
+            <ul id="cartItemList">
+                <!-- Item To Be Displayed Here -->
+            </ul>
+        </div>
 
-    <div class="container">
-        <h2 class="text-center mb-5">Collaborators</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-3">Khandoker Ashik Uz Zaman</h4>
-                        <p class="card-text text-center">Hello, my name is Khandoker Ashik Uz Zaman, and I am a
-                            full-stack developer
-                            My expertise includes
-                            developing scalable web applications using a variety of programming languages, such as
-                            JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React and Blade, as well as back-end technologies like Node.js, Express.js and
-                            php Laravel.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-3">Tanmoy Bhowmick</h4>
-                        <p class="card-text text-center">Hello, my name is Tanmoy Bhowmick, and I am a full-stack
-                            developer
-                            with [Number of years] of experience. My expertise includes
-                            developing scalable web applications using a variety of programming languages, such as
-                            JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React, Angular, and Vue, as well as back-end technologies like Node.js,
-                            Django, and Spring.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-3">Umme Aiman</h4>
-                        <p class="card-text text-center">Hello, my name is Umme Aiman, and I am a full-stack developer
-                            with [Number of years] of experience. My expertise includes
-                            developing scalable web applications using a variety of programming languages, such as
-                            JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React, Angular, and Vue, as well as back-end technologies like Node.js,
-                            Django, and Spring.</p>
-                    </div>
-                </div>
-            </div>
+        <br>
+
+        <div class="subtotal cf">
+            <ul>
+                <li class="totalRow"><span class="label">Subtotal</span><span id="subtotal" class="value">৳ 3000</span></li>
+
+                <li class="totalRow"><span class="label">Shipping</span><span id="shipping" class="value">৳ 50</span></li>
+
+                <li class="totalRow final"><span class="label">Total</span><span id="total" class="value">৳ 3050</span></li>
+                <li class="totalRow"><a id="checkout-btn" href="{{ route('checkout') }}" class="btn checkout continue">Checkout</a></li>
+            </ul>
         </div>
     </div>
-
-    <hr class="my-5">
-
-    <div class="container">
-        <h2 class="text-center mb-5">Our Vision</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <p class="text-center">We aim to prevent the street hawkers from losing their jobs due to infrastructure
-                    development inside Dhaka City. This will also help to preserve the traditional arts &amp; crafts of
-                    Bangladeshi culture which is slowly fading away. We are also proposing a new &amp; innovative way of
-                    improving
-                    customer experience through the use of 3D models which solves one of the biggest issues of online
-                    shopping
-                    which is not getting the same product as it looks like on the internet.</p>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <h3 class="text-center" style="color: green">Website made for Data & Design Lab Metaverse & Improved E-commerce
-        Project</h3>
-    <br>
-    </div>
-
-    <hr><br><br>
 
     <footer class="footer bg-dark">
         <div class="container">
@@ -212,6 +164,8 @@ $isLoggedIn = auth()->check();
             </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -221,8 +175,6 @@ $isLoggedIn = auth()->check();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-
-    <script src="js/cart.js"></script>
 
 </body>
 

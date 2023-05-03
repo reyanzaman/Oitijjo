@@ -10,14 +10,15 @@ $isLoggedIn = auth()->check();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Checkout</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
 
     <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/27152874f8.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@ $isLoggedIn = auth()->check();
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="{{ route('about') }}">About</a>
                     </li>
-                    @if($isLoggedIn)
+                        @if($isLoggedIn)
                     <li class="nav-item mx-2">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -66,7 +67,8 @@ $isLoggedIn = auth()->check();
                         <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
                     </li>
                     @endif
-                    <!-- <li class="nav-item mx-2">
+                    <!-- </li>
+                    <li class="nav-item mx-2">
                         <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
                     </li>
                     <li class="nav-item mx-2">
@@ -100,79 +102,95 @@ $isLoggedIn = auth()->check();
         </div>
     </div>
 
-    <hr class="my-5">
-
-    <div class="container">
-        <h2 class="text-center mb-5">Collaborators</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-3">Khandoker Ashik Uz Zaman</h4>
-                        <p class="card-text text-center">Hello, my name is Khandoker Ashik Uz Zaman, and I am a
-                            full-stack developer
-                            My expertise includes
-                            developing scalable web applications using a variety of programming languages, such as
-                            JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React and Blade, as well as back-end technologies like Node.js, Express.js and
-                            php Laravel.</p>
+    <!-- Checkout -->
+    <div class="card">
+        <div id="main-2" class="container"></div>
+        <div id="main" class="container">
+            <div class="card-title">
+                <h2>Payment</h2>
+            </div>
+            <form id="payment-form" method="POST" action="/order">
+                @csrf
+                <div class="card-body">
+                    <div class="payment-type">
+                        <h4>Choose payment method below</h4>
+                        <div class="types flex justify-space-between">
+                            <input type="hidden" name="selected_button" id="selected_button" value="opt1">
+                            <div onclick="clickOpt1(event)" id="opt1" class="type selected">
+                                <div class="logo">
+                                    <i class="far fa-solid fa-wallet"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Cash On Delivery</p>
+                                </div>
+                            </div>
+                            <div onclick="clickOpt2(event)" id="opt2" class="type">
+                                <div class="logo">
+                                    <img class="fab" src="assets/Bkash.png" style="width:60px;"></img>
+                                </div>
+                                <div class="text">
+                                    <p>Pay with Bkash</p>
+                                </div>
+                            </div>
+                            <div onclick="clickOpt3(event)" id="opt3" class="type">
+                                <div class="logo">
+                                    <img class="fab" src="assets/Nagad.png" style="width:80px"></img>
+                                </div>
+                                <div class="text">
+                                    <p>Pay with Nagad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-info flex justify-space-between align-items-start">
+                        <div class="column billing">
+                            <div class="title">
+                                <h4>Billing Info</h4>
+                            </div>
+                            <div class="field full">
+                                <label for="name">Full Name</label>
+                                <input id="name" name="name" type="text" placeholder="Full Name" required>
+                            </div>
+                            <div class="field full">
+                                <label for="address">Billing Address</label>
+                                <input id="address" name="address" type="text" placeholder="Billing Address" required>
+                            </div>
+                            <div class="flex justify-space-between">
+                                <div class="field full">
+                                    <label for="city">City</label>
+                                    <input id="city" name="city" type="text" placeholder="City" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column shipping">
+                            <div class="title">
+                                <h4 style="visibility:hidden;">...</h4>
+                            </div>
+                            <div class="field full">
+                                <label for="phone">Contact Number</label>
+                                <input id="phone" name="phone" type="text" placeholder="Contact Number" required>
+                            </div>
+                            <div class="field full">
+                                <label for="phone">Alternate Contact Number</label>
+                                <input id="alt_number" name="alt_number" type="text" placeholder="Contact Number (optional)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions flex justify-space-between">
+                    <div class="flex-start">
+                        <a href="{{ route('products') }}" class="button button-secondary">Return to Store</a>
+                    </div>
+                    <div class="flex-end">
+                        <a href="{{ route('cart') }}" class="button button-link">Back to Cart</a>
+                        <a onclick="proceed(event)" class="button button-primary">Proceed</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-3">Tanmoy Bhowmick</h4>
-                        <p class="card-text text-center">Hello, my name is Tanmoy Bhowmick, and I am a full-stack
-                            developer
-                            with [Number of years] of experience. My expertise includes
-                            developing scalable web applications using a variety of programming languages, such as
-                            JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React, Angular, and Vue, as well as back-end technologies like Node.js,
-                            Django, and Spring.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-3">Umme Aiman</h4>
-                        <p class="card-text text-center">Hello, my name is Umme Aiman, and I am a full-stack developer
-                            with [Number of years] of experience. My expertise includes
-                            developing scalable web applications using a variety of programming languages, such as
-                            JavaScript, Python, and Java. I also have experience working with popular front-end
-                            frameworks like React, Angular, and Vue, as well as back-end technologies like Node.js,
-                            Django, and Spring.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 
-    <hr class="my-5">
-
-    <div class="container">
-        <h2 class="text-center mb-5">Our Vision</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <p class="text-center">We aim to prevent the street hawkers from losing their jobs due to infrastructure
-                    development inside Dhaka City. This will also help to preserve the traditional arts &amp; crafts of
-                    Bangladeshi culture which is slowly fading away. We are also proposing a new &amp; innovative way of
-                    improving
-                    customer experience through the use of 3D models which solves one of the biggest issues of online
-                    shopping
-                    which is not getting the same product as it looks like on the internet.</p>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <h3 class="text-center" style="color: green">Website made for Data & Design Lab Metaverse & Improved E-commerce
-        Project</h3>
-    <br>
-    </div>
-
-    <hr><br><br>
+    <br><br>
 
     <footer class="footer bg-dark">
         <div class="container">
@@ -212,6 +230,9 @@ $isLoggedIn = auth()->check();
             </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -221,8 +242,6 @@ $isLoggedIn = auth()->check();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-
-    <script src="js/cart.js"></script>
 
 </body>
 
