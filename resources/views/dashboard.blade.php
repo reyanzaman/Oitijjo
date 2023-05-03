@@ -95,13 +95,12 @@ $isLoggedIn = auth()->check();
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
-                <div>Welcome!!</div>
-                <div style= margin-top:10vh>
-                WELCOME TO OITIJJOH!
+                
+                <div class="text-center m-10 p-4 mx" style= "margin-top: 10vh; ">
+                <div class="h1">WELCOME TO OITIJJOH!</div>
+                <div class="h3">Please go to homepage to shop.</div>
                 </div>
-                <div >
-                    Please go to homepage to shop.
-                </div>
+                
             </div>
         </div>
     </div>
