@@ -28,10 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/products', function () {
-    return view('products');
-})->name('products');
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/products', 'show');
 
+});
 Route::get('/about', function () {
     return view('about');
 })->name('about');

@@ -37,7 +37,10 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
-        //
+
+        $product = Product::all();
+
+        return View('products', compact('product'));
     }
 
     /**
