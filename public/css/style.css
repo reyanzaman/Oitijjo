@@ -9,6 +9,11 @@ a{
     text-decoration:none;
 }
 
+.seller{
+    text-align: center;
+    color:rgb(53, 53, 53)
+}
+
 .image-container{
     margin-top: 50px;
     padding: 5%;
@@ -118,6 +123,14 @@ a{
     width: 50vw;
     max-width: 20rem;
   }
+
+  .fa-cart-shopping{
+    color: #55a34d;
+  }
+
+  .fa-cart-shopping:hover{
+    color: #3c7425;
+  }
   
   @media screen and (max-width: 1200px) {
     .image-container {
@@ -156,4 +169,17 @@ a{
     .title-text{
         text-align: center;
     }
-  }
+    
+    @media only screen and (max-width: 1000px) {
+        .fa-cart-shopping{
+            margin: 30px 0px;
+        }
+        .navbar-nav .nav-item {
+            margin-bottom: 5px;
+        }
+
+        .btn-outline-success{
+            margin-top: 10px;
+        }
+    }
+}
