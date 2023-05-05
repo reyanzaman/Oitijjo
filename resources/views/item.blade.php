@@ -94,24 +94,22 @@ $data = [
                     poster="assets/shokher_hari_h.png" shadow-intensity="0" camera-controls touch-action="pan-y"></model-viewer>
             </div>
             <div class="col-lg-6 col-sm-12 text-col popular-text">
-                <h1 id="prod-name" class="title-text">Shokher Hari</h1>
+                <h1 id="prod-name" class="title-text"></h1>
                 <h5 id="seller">
-                    Sold by Rahman Crafts
+                    
                 </h5>
                 <br>
-                <p id="prod-description">Make this artistic piece of Bangladeshi art and culture your own.
-                    We try to give you the best & most aesthetic products. Browse through all the products from
-                    various sellers and choose the one you like best and get it right at your doorstep.</p>
+                <p id="prod-description"></p>
                 <h5>
-                    <bold id="prod-dimension">Dimensions: 63cm x 63cm x 42cm</bold>
+                    <bold id="prod-dimension"></bold>
                 </h5>
                 <h5>
-                    <bold id="prod-stock" style="color:red;">NOT IN STOCK</bold>
+                    <bold id="prod-stock" style="color:red;"></bold>
                 </h5>
                 <br>
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
-                        <p id="prod-price" class="price-text">500Tk/-</p>
+                        <p id="prod-price" class="price-text"></p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <a id="cart-btn" class="btn btn-outline-success btn-lg buy-btn"
@@ -121,13 +119,13 @@ $data = [
                 <br><br>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img1" class="img-fluid" src="assets/shokher_hari1.png">
+                        <img id="prod-img1" class="img-fluid" src="">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img2" class="img-fluid" src="assets/shokher_hari2.png">
+                        <img id="prod-img2" class="img-fluid" src="">
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <img id="prod-img3" class="img-fluid" src="assets/shokher_hari3.png">
+                        <img id="prod-img3" class="img-fluid" src="">
                     </div>
                 </div>
             </div>
@@ -147,7 +145,7 @@ $data = [
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
+                <a href='http://127.0.0.1:8000/item?id=12'>
                     <h5 class="product-text">Matir Holder</h5>
                 </a>
                 <h5 class="small-price-text">
@@ -157,7 +155,7 @@ $data = [
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
+                <a href='http://127.0.0.1:8000/item?id=8'>
                     <h5 class="product-text">Matir Shell</h5>
                 </a>
                 <h5 class="small-price-text">
@@ -167,7 +165,7 @@ $data = [
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
+                <a href='http://127.0.0.1:8000/item?id=7'>
                     <h5 class="product-text">Matir Komir</h5>
                 </a>
                 <h5 class="small-price-text">
@@ -177,7 +175,7 @@ $data = [
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png"
                     shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
+                <a href='http://127.0.0.1:8000/item?id=3'>
                     <h5 class="product-text">Matir Bati</h5>
                 </a>
                 <h5 class="small-price-text">
