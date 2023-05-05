@@ -12,3 +12,5 @@ The website has been developed using Php Laravel for Backend and Laravel's blade
 ![Screenshot](/public/screenshots/4.png?raw=true)
 ![Screenshot](/public/screenshots/5.png?raw=true)
 ![Screenshot](/public/screenshots/6.png?raw=true)
+![Screenshot](/public/screenshots/7.png?raw=true)
+![Screenshot](/public/screenshots/8.png?raw=true)
