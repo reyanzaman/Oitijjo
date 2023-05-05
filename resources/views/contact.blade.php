@@ -81,12 +81,6 @@ if(isset($_POST["submit"])){
                             </button>
                         </form>
                     </li>
-                    <li class="nav-item mx-4">
-                        <a href="{{ route('cart') }}">
-                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
-                        </a>
-                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li>
                     @else
                     <li class="nav-item mx-2">
                         <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>

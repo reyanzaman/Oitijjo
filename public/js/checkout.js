@@ -24,6 +24,17 @@ function clickOpt3(event){
 }
 
 function proceed(event){
+    var name = document.getElementById('name').value;
+    var address = document.getElementById('address').value;
+    var city = document.getElementById('city').value;
+    var phone = document.getElementById('phone').value;
+
+    if (!name || !address || !city || !phone) {
+        alert("Please fill in all required fields.");
+        event.preventDefault();
+        return;
+    }
+
     ui = document.getElementById("main");
     ui.style.display = "none";
     newUI = document.getElementById("main-2")

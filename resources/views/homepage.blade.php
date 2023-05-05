@@ -50,12 +50,6 @@ $isLoggedIn = auth()->check();
                             </button>
                         </form>
                     </li>
-                    <li class="nav-item mx-4">
-                        <a href="{{ route('cart') }}">
-                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
-                        </a>
-                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li>
                     @else
                     <li class="nav-item mx-2">
                         <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
@@ -93,13 +87,13 @@ $isLoggedIn = auth()->check();
                     We try to give you the best & most aesthetic products. Browse through all the products from
                     various sellers and choose the one you like best and get it right at your doorstep.</p>
                 <br>
-                <h2><a href="{{ route('item') }}">Shokher Hari</a></h2>
+                <h2><a id="popular_link1" href="#">Shokher Hari</a></h2>
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
                         <p class="price-text">500Tk/-</p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <a class="btn btn-outline-success btn-lg buy-btn" href="{{ route('item') }}">View Product</a>
+                        <a class="btn btn-outline-success btn-lg buy-btn" id="popular_link2" href="#">View Product</a>
                     </div>
                 </div>
             </div>

@@ -63,12 +63,6 @@ $isLoggedIn = auth()->check();
                         <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
                     </li>
                     @endif
-                    <li class="nav-item mx-4">
-                        <a href="{{ route('cart') }}">
-                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
-                        </a>
-                        <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -89,6 +83,7 @@ $isLoggedIn = auth()->check();
                 </div>
                 
                 <div class="text-center m-5 p-5 " style= "margin-top: 10vh; ">
+                <br><br>
                 <div class="h1">WELCOME TO OITIJJOH!</div>
                 <div class="h3">Please go to homepage to shop.</div>
                 </div>

@@ -25,7 +25,14 @@ async function generateProducts(products) {
         loopTimes = 2;
     }
 
-    console.log(loopTimes);
+    popular_product_id = 9;
+    link1 = document.getElementById('popular_link1');
+    link2 = document.getElementById('popular_link2');
+    var baseUrl = 'http://127.0.0.1:8000/item';
+    var link_url = `${baseUrl}?id=${popular_product_id}`;
+    link1.setAttribute("href", link_url);
+    link2.setAttribute("href", link_url);
+
     var counter = -1;
 
     for(var i=0; i<loopTimes; i++){
@@ -44,7 +51,6 @@ async function generateProducts(products) {
                 var seller_id = products[counter].seller_id;
                 var seller = await getSeller(seller_id);
 
-                let baseUrl = 'http://127.0.0.1:8000/item';
                 let url = `${baseUrl}?id=${products[counter].id}`;
 
                 col.innerHTML = `
