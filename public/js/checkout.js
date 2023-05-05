@@ -35,22 +35,6 @@ function proceed(event){
         return;
     }
 
-    ui = document.getElementById("main");
-    ui.style.display = "none";
-    newUI = document.getElementById("main-2")
-    newUI.innerHTML = `
-    <h4 style="color:green; text-align: center;">Your order has been successfully placed!</h4>
-    <div class="card-actions flex justify-content-center">
-        <div>
-            <a href="/products" class="button button-secondary">Return to Store</a>
-        </div>
-        <br><br><br><br>
-        <div>
-            <a style="margin-left: 10px;" href="/tracking" class="button button-primary">Track Order</a>
-        </div>
-    </div>
-    `;
-
     var cartData = JSON.parse(localStorage.getItem("cartData"));
     var formData = new FormData();
     formData.append('cartData', JSON.stringify(cartData));
@@ -77,7 +61,6 @@ function proceed(event){
     formData.append('quantity', JSON.stringify(Object.entries(quantity)));
     formData.append('totalPrice', totalPrice);
 
-    // Send the form data to the backend using fetch API
     fetch('/order', {
         method: 'POST',
         headers: {
@@ -90,7 +73,25 @@ function proceed(event){
         cartItemCountElement.innerText = cartItemCount;
         localStorage.setItem("cartItemCount", cartItemCount);
         localStorage.removeItem("cartData");
+    
+        ui = document.getElementById("main");
+        ui.style.display = "none";
+        newUI = document.getElementById("main-2");
+        response.text().then(function(orderId) {
+            newUI.innerHTML = `
+                <h4 style="color:green; text-align: center;">Your order with ID ${orderId} has been successfully placed!</h4>
+                <div class="card-actions flex justify-content-center">
+                    <div>
+                        <a href="/products" class="button button-secondary">Return to Store</a>
+                    </div>
+                    <br><br><br><br>
+                    <div>
+                        <a style="margin-left: 10px;" href="/tracking" class="button button-primary">Track Order</a>
+                    </div>
+                </div>
+            `;
+        });
     }).catch(function(error) {
         console.log("Error has occured!")
-    });
+    });    
 }

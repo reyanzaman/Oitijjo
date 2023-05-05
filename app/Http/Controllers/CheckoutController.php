@@ -67,9 +67,7 @@ class CheckoutController extends Controller
         }
 
         error_log("Order items has been updated in the database");
-        return response()->json([
-            'message' => 'Order placed successfully'
-        ]);
+        return $order->id;
     }
 
     public function orderStatus(Request $request){
