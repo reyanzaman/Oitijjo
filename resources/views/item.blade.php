@@ -81,19 +81,12 @@ $data = [
                         <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
                     </li>
                     @endif
-                    <!-- <li class="nav-item mx-2">
-                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="btn btn-outline-success btn-rounded"
-                            href="{{ route('login') }}">Sign in</a>
-                    </li>
                     <li class="nav-item mx-4">
                         <a href="{{ route('cart') }}">
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -112,7 +105,7 @@ $data = [
                     Sold by Rahman Crafts
                 </h5>
                 <br>
-                <p id="prod-description" style="text-align: justify;">Make this artistic piece of Bangladeshi art and culture your own.
+                <p id="prod-description">Make this artistic piece of Bangladeshi art and culture your own.
                     We try to give you the best & most aesthetic products. Browse through all the products from
                     various sellers and choose the one you like best and get it right at your doorstep.</p>
                 <h5>

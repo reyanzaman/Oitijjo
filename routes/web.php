@@ -70,4 +70,7 @@ Route::get('/admin', function () {
 
 Route::post('/deliveryStatus', 'App\Http\Controllers\DeliveryController@updateStatus')->name('deliveryStatus');
 
+Route::get('/productDetails', 'App\Http\Controllers\ProductController@getDetails')->name('productDetails');
+Route::get('/sellerDetails/{id}', 'App\Http\Controllers\ProductController@getSeller')->name('sellerDetails');
+
 require __DIR__.'/auth.php';

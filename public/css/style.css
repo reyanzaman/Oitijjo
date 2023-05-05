@@ -169,6 +169,10 @@ a{
     .title-text{
         text-align: center;
     }
+
+    #prod-description{
+        text-align: justify;
+    }
     
     @media only screen and (max-width: 1000px) {
         .fa-cart-shopping{
@@ -180,6 +184,9 @@ a{
 
         .btn-outline-success{
             margin-top: 10px;
+        }
+        #prod-description{
+            text-align: center;
         }
     }
 }

@@ -66,20 +66,12 @@ $isLoggedIn = auth()->check();
                         <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
                     </li>
                     @endif
-                    <!-- 
-                    <li class="nav-item mx-2">
-                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="btn btn-outline-success btn-rounded"
-                            href="{{ route('login') }}">Sign in</a>
-                    </li>
                     <li class="nav-item mx-4">
                         <a href="{{ route('cart') }}">
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -120,15 +112,15 @@ $isLoggedIn = auth()->check();
             <div class="row justify-content-between">
                 <div id="pending" class="order-tracking completed">
                     <span class="is-complete"></span>
-                    <p id="pending-text">Pending<br><span id="pending_date">Mon, June 24</span></p>
+                    <p id="pending_text">Pending<br><span id="pending_date">Mon, June 24</span></p>
                 </div>
                 <div id="processing" class="order-tracking">
                     <span class="is-complete"></span>
-                    <p>Processing<br><span id="processing_date">Tue, June 25</span></p>
+                    <p id="processing_text">Processing<br><span id="processing_date">Tue, June 25</span></p>
                 </div>
                 <div id="completed" class="order-tracking cancelled">
                     <span class="is-complete"></span>
-                    <p>Completed<br><span id="completed_date">Fri, June 28</span></p>
+                    <p id="completed_text">Completed<br><span id="completed_date">Fri, June 28</span></p>
                 </div>
             </div>
         </div>

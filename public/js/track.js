@@ -21,6 +21,9 @@ function updateStatus(event) {
         var pending_date = document.getElementById("pending_date");
         var processing_date = document.getElementById("processing_date");
         var completed_date = document.getElementById("completed_date");
+        var pending_text = document.getElementById("pending_text");
+        var processing_text = document.getElementById("processing_text");
+        var completed_text = document.getElementById("completed_text");
 
         const date = new Date(data.updated_at);
         const readableDate = date.toLocaleDateString();
@@ -47,6 +50,9 @@ function updateStatus(event) {
             processing_date.innerText = "";
             completed_date.innerText = readableDate;
         }else if(data.status=="cancelled"){
+            pending_text.innerText = "";
+            processing_text.innerText = "Cancelled";
+            completed_text.innerText = "";
             pending.classList = "order-tracking cancelled";
             processing.classList = "order-tracking cancelled";
             completed.classList = "order-tracking cancelled";

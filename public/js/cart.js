@@ -43,14 +43,15 @@ function generateCartItemsHTML(cartData) {
                 <p class="itemNumber">#${id.toString().padStart(8,'0')}</p>
                 <h3>${item.name}</h3>
                 <p>
-                  <input type="text" class="qty" placeholder="1" value="1" /> x <p class="singlePrice">${item.price}</p>
+                  <input type="text" class="qty" placeholder="1" value="1" disabled/> x <p class="singlePrice">${item.price}</p>
                 </p>
               </div>
               <div class="prodTotal cartSection">
                 <p class="itemPrice">৳ ${Math.round(item.price)}</p>
               </div>
               <div class="cartSection removeWrap">
-                <a href="#" onclick="removeFromCart(event)" class="remove">x</a>
+                <a href="#" onclick="updateFromCart(event, '+')" class="add">+</a>
+                <a href="#" onclick="updateFromCart(event, '-')" class="remove">-</a>              
               </div>
             </div>`;
           if(cartItemList){
@@ -58,10 +59,6 @@ function generateCartItemsHTML(cartData) {
             counts[id] = 1;
           }
         }
-        var qtyInput = li.querySelector(".qty");
-        qtyInput.addEventListener("input", function(event) {
-          updateCart(event.target.value, id, item.price);
-        });
       }
     }
   }  
@@ -72,10 +69,6 @@ function addToCart() {
     cartItemCount++;
     cartItemCountElement.innerText = cartItemCount;
 
-    // Get item data from the page
-    let stock = document.getElementById("prod-stock");
-
-    // Create an object with item data
     var item = {
         id: data.id,
         image: data.model + "_h.png",
@@ -90,37 +83,57 @@ function addToCart() {
     localStorage.setItem("cartItemCount", cartItemCount);
 }
 
-function removeFromCart(event) {
+function updateFromCart(event, op) {
     event.preventDefault();
     var cartItemCountElement = document.getElementById("cartItemCount");
     var cartItemCount = parseInt(cartItemCountElement.innerText);
-    cartItemCount--;
-    cartItemCountElement.innerText = cartItemCount;
 
     var li = $(event.target).closest("li");
     var qtyElement = li.find(".qty");
     var qty = parseInt(qtyElement.val());
-    qty--;
+    if(op=="+"){
+      cartItemCount++;
+      cartItemCountElement.innerText = cartItemCount;
+      qty++;
+    }else{
+      cartItemCount--;
+      cartItemCountElement.innerText = cartItemCount;
+      qty--;
+    }
     qtyElement.val(qty);
 
     var priceElement = li.find(".itemPrice");
     var singlePriceElement = li.find(".singlePrice");
-    newPrice = parseInt(priceElement.text().substring(2)) - parseInt(singlePriceElement.text());
+    if(op=="+"){
+      newPrice = parseInt(priceElement.text().substring(2)) + parseInt(singlePriceElement.text());
+    }else{
+      newPrice = parseInt(priceElement.text().substring(2)) - parseInt(singlePriceElement.text());
+    }
     priceElement.text("৳ " + newPrice)
 
     // Remove product from cartData in local storage
     var cartData = JSON.parse(localStorage.getItem("cartData"));
-    var productId = li.find(".itemNumber").text().substring(1);
+    var productId = li.find(".itemNumber").text().replace(/^#0+/, '');
+    console.log(productId);
     var productIndex = -1;
     for(var i = 0; i < cartData.length; i++) {
-        if (cartData[i].id == productId) {
-            productIndex = i;
-            break;
-        }
+      if (cartData[i].id == productId) {
+          productIndex = i;
+          break;
+      }
     }
-    if(productIndex > -1) {
-        cartData.splice(productIndex, 1);
-        localStorage.setItem("cartData", JSON.stringify(cartData));
+    if(productIndex > -1 && op=="-") {
+      cartData.splice(productIndex, 1);
+      localStorage.setItem("cartData", JSON.stringify(cartData));
+    }else if(productIndex > -1 && op=="+"){
+      var item = {
+        id: cartData[productIndex].id,
+        image: cartData[productIndex].model + "_h.png",
+        name: cartData[productIndex].name,
+        price: cartData[productIndex].price,
+      };
+      cartData.push(item);
+      localStorage.setItem("cartData", JSON.stringify(cartData));
     }
 
     if(qty==0){
@@ -163,46 +176,5 @@ function calculateCartCost(cartData) {
 
       shipping.innerHTML = "৳ " + shippingCost;
       total.innerHTML = "৳ " + (shippingCost + totalCost);
-  }
-}
-
-function updateCart(qty, itemID, price){
-  var li = document.getElementById(itemID);
-  if(li){
-    var newPrice = qty * price;
-    var itemPriceElement = li.querySelector(".itemPrice");
-    itemPriceElement.textContent = "৳ " + Math.round(newPrice);
-
-    var cartData = JSON.parse(localStorage.getItem("cartData"));
-    var quantity = 0;
-    for(var i = 0; i < cartData.length; i++) {
-      if (cartData[i].id == itemID) {
-          quantity++;
-      }
-    }
-
-    var cartItemCountElement = document.getElementById("cartItemCount");
-    var cartItemCount = parseInt(cartItemCountElement.innerText);
-    if(quantity>qty){
-      //Remove (quantity - qty) elements from cartData
-      for(var i = 0; i < cartData.length; i++) {
-        if (cartData[i].id == itemID && quantity>qty) {
-          cartData.splice(i, 1);
-          quantity--;
-          cartItemCount = quantity;
-        }
-      }
-    }else{
-      //Add (qty - quantity) elements to cartData with the same details and everything as the product with itemID
-      var item = cartData.find(item => item.id === itemID);
-      for (var i = quantity; i < qty; i++) {
-        cartData.push(Object.assign({}, item));
-        cartItemCount++;
-      }
-    }
-    cartItemCountElement.innerText = cartItemCount; 
-    localStorage.setItem("cartItemCount", cartItemCount);
-    localStorage.setItem("cartData", JSON.stringify(cartData));
-    calculateCartCost(cartData); 
   }
 }

@@ -10,6 +10,7 @@ $isLoggedIn = auth()->check();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Homepage</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -63,20 +64,12 @@ $isLoggedIn = auth()->check();
                         <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
                     </li>
                     @endif
-                    <!-- <li class="nav-item mx-2">
-                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="btn btn-outline-success btn-rounded"
-                            href="{{ route('login') }}">Sign in</a>
-                    </li>
-
                     <li class="nav-item mx-4">
                         <a href="{{ route('cart') }}">
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li>-->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -114,86 +107,7 @@ $isLoggedIn = auth()->check();
     </div>
 
     <!-- Gallery -->
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Holder</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Shell</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Komir</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Bati</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_basha.glb" ar autoplay poster="assets/matir_basha_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Basha</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_fuldani.glb" ar autoplay poster="assets/matir_fuldani_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Fuldani</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_jug.glb" ar autoplay poster="assets/matir_jug_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Jug</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_baksho.glb" ar autoplay poster="assets/matir_baksho_h.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Baksho</h5>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-        </div>
-    </div>
+    <div id="homeDIV" class="container"></div>
 
     <!-- Browser More Button -->
     <div class="row btn-area d-flex justify-content-center">
@@ -236,6 +150,8 @@ $isLoggedIn = auth()->check();
                 <p class="text-white">&copy; Copyright DnD Lab 2023. All Right Reserved</p>
             </div>
     </footer>
+
+    <script src="js/product.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>

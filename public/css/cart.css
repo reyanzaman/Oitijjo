@@ -183,7 +183,7 @@ a.remove {
   color: #ffffff;
   font-weight: bold;
   background: #e0e0e0;
-  padding: .5em;
+  padding: .8em;
   font-size: .75em;
   display: inline-block;
   border-radius: 100%;
@@ -193,6 +193,24 @@ a.remove {
 }
 a.remove:hover {
   background: #f30;
+}
+
+a.add {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  background: #e0e0e0;
+  padding: .8em;
+  font-size: .75em;
+  display: inline-block;
+  border-radius: 100%;
+  line-height: .85;
+  margin: 0 0 1.4em 0;
+  transition: all 0.25s linear;
+}
+a.add:hover {
+  background: #55a34d;
 }
 
 .checkout:link, .checkout:visited {

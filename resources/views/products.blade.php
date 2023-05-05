@@ -66,20 +66,12 @@ $isLoggedIn = auth()->check();
                         <a class="btn btn-outline-success btn-rounded" href="{{ route('login') }}">Sign in</a>
                     </li>
                     @endif
-                    <!-- </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link mx-2" href="{{ route('register') }}">Register</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="btn btn-outline-success btn-rounded"
-                            href="{{ route('login') }}">Sign in</a>
-                    </li>
                     <li class="nav-item mx-4">
                         <a href="{{ route('cart') }}">
                             <i class="fa-solid fa-cart-shopping fa-xl"></i>
                         </a>
                         <span id="cartItemCount" class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -88,102 +80,7 @@ $isLoggedIn = auth()->check();
     <div style="margin-top: 15vh; position: relative"></div>
 
     <!-- Gallery -->
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_holder.glb" ar autoplay poster="assets/matir_holder_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Holder</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_shell.glb" ar autoplay poster="assets/matir_shell_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Shell</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_komir.glb" ar autoplay poster="assets/matir_komir_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Komir</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_bati.glb" ar autoplay poster="assets/matir_bati_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Bati</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_basha.glb" ar autoplay poster="assets/matir_basha_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Basha</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_fuldani.glb" ar autoplay poster="assets/matir_fuldani_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Fuldani</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_jug.glb" ar autoplay poster="assets/matir_jug_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Jug</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <model-viewer class="viewer" src="assets/matir_baksho.glb" ar autoplay poster="assets/matir_baksho_h.png"
-                    shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                <a href="{{ route('item') }}">
-                    <h5 class="product-text">Matir Baksho</h5>
-                    <h6 class="seller">From Seller_Name</h6>
-                </a>
-                <h5 class="small-price-text">
-                    <bold>200tk/-</bold>
-                </h5>
-            </div>
-        </div>
-    </div>
+    <div id="productDIV" class="container"></div>
 
     <div style="margin-top: 5vh; position: relative"></div>
 
@@ -236,6 +133,7 @@ $isLoggedIn = auth()->check();
     </script>
 
     <script src="js/cart.js"></script>
+    <script src="js/product.js"></script>
 
 </body>
 

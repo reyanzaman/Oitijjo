@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Log;
 
 class ItemController extends Controller
 {
-    public function getItemData()
+    public function getItemData(Request $request)
     {
-        $id = 2; #Temporarily static
+        $id = $request->input('id');
     
         $product = DB::table('product')->where('id', $id)->first();
         if (!$product) {
