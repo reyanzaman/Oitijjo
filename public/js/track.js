@@ -63,6 +63,9 @@ function updateStatus(event) {
       })
       .catch(function(error) {
         errorElement.style.display = "block";
+        while (errorElement.firstChild) {
+          errorElement.removeChild(errorElement.firstChild);
+        }
         main.style.display = "none";
         var errorMsg = document.createElement('h3');
         errorMsg.innerText = 'Order not found!';
