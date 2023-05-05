@@ -105,7 +105,7 @@ $isLoggedIn = auth()->check();
 
     <!-- Browser More Button -->
     <div class="row btn-area d-flex justify-content-center">
-        <a class="btn btn-lg btn-outline-success" href="products.html">Browse More</a>
+        <a class="btn btn-lg btn-outline-success" href="{{ route('products') }}">Browse More</a>
     </div>
 
     <footer class="footer bg-dark">

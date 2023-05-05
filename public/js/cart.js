@@ -50,8 +50,8 @@ function generateCartItemsHTML(cartData) {
                 <p class="itemPrice">৳ ${Math.round(item.price)}</p>
               </div>
               <div class="cartSection removeWrap">
-                <a href="#" onclick="updateFromCart(event, '+')" class="add">+</a>
                 <a href="#" onclick="updateFromCart(event, '-')" class="remove">-</a>              
+                <a href="#" onclick="updateFromCart(event, '+')" class="add">+</a>
               </div>
             </div>`;
           if(cartItemList){

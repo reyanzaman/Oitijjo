@@ -30,8 +30,10 @@ async function generateProducts(products) {
     link2 = document.getElementById('popular_link2');
     var baseUrl = 'http://127.0.0.1:8000/item';
     var link_url = `${baseUrl}?id=${popular_product_id}`;
-    link1.setAttribute("href", link_url);
-    link2.setAttribute("href", link_url);
+    if(link1!=null && link2!=null){
+        link1.setAttribute("href", link_url);
+        link2.setAttribute("href", link_url);
+    }
 
     var counter = -1;
 
