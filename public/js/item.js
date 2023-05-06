@@ -9,6 +9,7 @@ let image1 = document.getElementById('prod-img1');
 let image2 = document.getElementById('prod-img2');
 let image3 = document.getElementById('prod-img3');
 let button = document.getElementById('cart-btn');
+let seller = document.getElementById('seller')
 
 model.src = 'assets/' + data.model + '.glb';
 model.poster = 'assets/' + data.model + '_h.png'
@@ -37,6 +38,15 @@ if(data.stock == 0){
     stock.style.color = 'green';
 }
 
+var seller_id = data.seller_id;
+getSeller(seller_id)
+  .then(function(seller_name) {
+    seller.innerHTML = seller_name;
+  })
+  .catch(function(error) {
+    console.error(error);
+  });
+
 
 var images = document.querySelectorAll('.img-fluid');
 
@@ -46,3 +56,13 @@ images.forEach(function (img) {
         this.classList.toggle('enlarge');
     });
 });
+
+async function getSeller(seller_id) {
+    try {
+        const response = await fetch(`/sellerDetails/${seller_id}`);
+        const seller = await response.json();
+        return seller.name;
+    } catch (error) {
+        console.error(error);
+    }
+}

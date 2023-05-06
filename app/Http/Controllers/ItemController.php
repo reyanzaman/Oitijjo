@@ -21,6 +21,7 @@ class ItemController extends Controller
         $model = $product->model;
         $name = $product->name;
         $description = $product->description;
+        $seller_id = $product->seller_id;
         $length = $product->length;
         $width = $product->width;
         $height = $product->height;
@@ -30,6 +31,6 @@ class ItemController extends Controller
         $image2 = $product->image2;
         $image3 = $product->image3;
     
-        return view('item', compact('id', 'model', 'name', 'description', 'length', 'width', 'height', 'price', 'stock', 'image1', 'image2', 'image3'));
+        return view('item', compact('id', 'model', 'name', 'description', 'seller_id', 'length', 'width', 'height', 'price', 'stock', 'image1', 'image2', 'image3'));
     }    
 }

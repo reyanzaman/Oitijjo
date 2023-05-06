@@ -8,6 +8,7 @@ $data = [
     'model' => $model,
     'name' => $name,
     'description' => $description,
+    'seller_id' => $seller_id,
     'length' => $length,
     'width' => $width,
     'height' => $height,
@@ -95,9 +96,7 @@ $data = [
             </div>
             <div class="col-lg-6 col-sm-12 text-col popular-text">
                 <h1 id="prod-name" class="title-text"></h1>
-                <h5 id="seller">
-                    
-                </h5>
+                <h5 id="seller"></h5>
                 <br>
                 <p id="prod-description"></p>
                 <h5>
