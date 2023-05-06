@@ -88,6 +88,7 @@ $isLoggedIn = auth()->check();
                     various sellers and choose the one you like best and get it right at your doorstep.</p>
                 <br>
                 <h2><a id="popular_link1" href="#">Shokher Hari</a></h2>
+                <h5 id="seller">Ali Craftsmanship</h5>
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
                         <p class="price-text">500Tk/-</p>
